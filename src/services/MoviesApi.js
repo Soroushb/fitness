@@ -17,7 +17,7 @@ export const moviesApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getMovies: builder.query({
-        query: () => createRequest(`/actors`),       
+        query: () => createRequest(`/titles/utils/genres`),       
      })
     })
 })
