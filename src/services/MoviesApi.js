@@ -23,7 +23,7 @@ export const moviesApi = createApi({
         query: () => createRequest(`/titles?year=1970`)
         }),
         getMoviesByDecade: builder.query({
-        query: ({startYear, page, endYear}) => createRequest(`/titles?startYear=${startYear}&page=${page}&endYear=${endYear}&limit=25`)
+        query: ({startYear, page, endYear}) => createRequest(`/titles?startYear=${startYear}&page=${page}&endYear=${endYear}&limit=20`)
         })
     })
 })

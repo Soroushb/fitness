@@ -3,6 +3,7 @@ import millify from 'millify'
 import { Link } from 'react-router-dom'
 import {Card, Space, Row, Col, Input, Select, Typography, Button, Pagination } from 'antd';
 import { useGetGenresQuery, useGetMoviesQuery, useGetMoviesByDecadeQuery } from '../services/MoviesApi';
+import { SearchOutlined } from '@ant-design/icons'
 
 
 const Movies = () => {
@@ -40,7 +41,7 @@ const Movies = () => {
     <Col span={8} offset={8}>
     <Space size={20}>
     <Row>
-    <Pagination page={page} onChange={onChange} total={500} />
+    <Pagination page={page} onChange={onChange} total={500000} />
     </Row>
     </Space>
     </Col> 
@@ -51,11 +52,12 @@ const Movies = () => {
     {console.log(moviesByDecade)}
   
     
-          {moviesByDecade?.results?.map((movie) => movie?.titleType?.text === "Movie" ? (
+          {moviesByDecade?.results?.map((movie) => ((movie?.titleType?.text === "Movie" || "tvSeries") && (movie?.titleType?.isEpisode === false)) ? (
             <Col xs={24} sm={12} lg={6} className="crypto-card">
-            <Card hoverable className='news-card'>
+            <Card hoverable className='movies-card'>
               <div className='news-image-container'>
                 <Title className='news-title' level={4}>{movie?.titleText?.text}</Title>
+                <SearchOutlined onClick={() => {window.open(`https://www.google.com/search?q=${movie?.titleText?.text} ${movie?.releaseYear?.year}`);}}/>
               </div>
               <p>
                 Release Year: {movie?.releaseYear?.year}
@@ -64,11 +66,11 @@ const Movies = () => {
           </Col>
           ) : (<></>))}
         </Row>
-          <Row>
-          <Button onClick={() => {if(page > 0) setPage(page - 1)}}>Prev Page</Button>
-          <p>{page}</p>
-          <Button onClick={() => setPage(page + 1)}>Next Page</Button>         
-          </Row>
+        <Row >
+        <Col span={8} offset={8}>
+        <Pagination page={page} onChange={onChange} total={500000} />
+        </Col>
+        </Row>
         </>
     )
 }

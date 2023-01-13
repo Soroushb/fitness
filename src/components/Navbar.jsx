@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
-import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
+import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined, ClockCircleOutlined } from '@ant-design/icons'
 import icon from '../images/james-joyce.jpg'
 
 const Navbar = () => {
@@ -50,8 +50,8 @@ const Navbar = () => {
             <Menu.Item icon={<BulbOutlined/>}>
                 <Link to="/news">News</Link>
             </Menu.Item>
-            <Menu.Item icon={<BulbOutlined/>}>
-                <Link to="/movies">Movies</Link>
+            <Menu.Item icon={<ClockCircleOutlined/>}>
+                <Link to="/movies">Movies by Decade</Link>
             </Menu.Item>
         </Menu>
         )}
