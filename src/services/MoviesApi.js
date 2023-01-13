@@ -16,10 +16,16 @@ export const moviesApi = createApi({
     reducerPath: 'moviesApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
-        getMovies: builder.query({
+        getGenres: builder.query({
         query: () => createRequest(`/titles/utils/genres`),       
-     })
+        }),
+        getMovies: builder.query({
+        query: () => createRequest(`/titles?year=1970`)
+        }),
+        getMoviesByDecade: builder.query({
+        query: ({startYear, endYear}) => createRequest(`/titles?startYear=${startYear}&endYear=${endYear}`)
+        })
     })
 })
 
-export const {useGetMoviesQuery} = moviesApi
+export const {useGetGenresQuery, useGetMoviesQuery, useGetMoviesByDecadeQuery} = moviesApi
