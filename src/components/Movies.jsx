@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import millify from 'millify'
-import { Link } from 'react-router-dom'
 import {Card, Space, Row, Col, Input, Select, Typography, Button, Pagination } from 'antd';
 import { useGetGenresQuery, useGetMoviesQuery, useGetMoviesByDecadeQuery } from '../services/MoviesApi';
 import { SearchOutlined } from '@ant-design/icons'
+import Loader from './Loader';
 
 
 const Movies = () => {
@@ -25,6 +24,7 @@ const Movies = () => {
     };
     //console.log(titles)
    //{titles?.map((title, index) => <Option key={index} value={title?.id}>{title?.id}</Option>)}
+   if(!moviesByDecade) return <Loader/>
 
    
 

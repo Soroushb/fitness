@@ -53,6 +53,9 @@ const Navbar = () => {
             <Menu.Item icon={<ClockCircleOutlined/>}>
                 <Link to="/movies">Movies by Decade</Link>
             </Menu.Item>
+            <Menu.Item icon={<ClockCircleOutlined/>}>
+                <Link to="/upcoming">Upcoming</Link>
+            </Menu.Item>
         </Menu>
         )}
     </div>
