@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import { Layout, Typography, Space } from 'antd'
-import {Navbar, Homepage, PopularMovies, Cryptocurrencies, CryptoDetails, News, Movies, Upcoming} from './components'
+import {Navbar, Homepage, PopularMovies, Cryptocurrencies, CryptoDetails, News, Movies, TopMovies} from './components'
 import './App.css'
 
 
@@ -27,19 +27,19 @@ const App = () => {
                         </Route>
                         <Route exact path='/movies' element={ <Movies/>}>
                         </Route>
-                        <Route exact path='/upcoming' element={ <Upcoming/>}>
+                        <Route exact path='/top100' element={ <TopMovies/>}>
                         </Route>
                     </Routes>
                 </div>
             </Layout>
         <div className='footer' level={5} style={{color:'white', textAlign:'center'}}>
-            <Typography.Title>
-                CryptoVerse<br/>
+            <Typography.Title style={{"color" : "white"}}>
+                Cinephelia<br/>
                 All Rights Reserved.
             </Typography.Title>
             <Space>
                 <Link to="/">Home</Link>
-                <Link to="/popularmovies">Popular Movies</Link>
+                <Link to="/popularmovies">Popular</Link>
                 <Link to="/news">News</Link>
             </Space>
         </div>

@@ -37,9 +37,17 @@ src={movie.image}
 <Col span={5} offset={11}>
 <h3 className='rank'>{movie.rank}</h3>
 </Col>
-<Rate disabled='false'/>
+<Row>
+  <Col>
+  <Rate disabled value={parseFloat(movie.rating)}/> 
+  </Col>
+  <Col offset={2}>
+  <h4 className='rate'>{movie.rating}</h4>
+  </Col>
+</Row>
+
 <Meta
-avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+avatar={<Avatar src={movie.thumbnail}/>}
 title={movie.title}
 description={movie.director}
 />

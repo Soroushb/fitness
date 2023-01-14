@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
-import { HomeOutlined, StarOutlined, BulbOutlined, FundOutlined, MenuOutlined, ClockCircleOutlined } from '@ant-design/icons'
-import icon from '../images/james-joyce.jpg'
+import { HomeOutlined, StarOutlined, BulbOutlined, FundOutlined, MenuOutlined, ClockCircleOutlined, CrownOutlined } from '@ant-design/icons'
+import icon from '../images/cinema.jpg'
 
 const Navbar = () => {
 
@@ -28,9 +28,9 @@ const Navbar = () => {
   return (
     <div className='nav-container'>
         <div className='logo-container'>
-            <Avatar src={icon} size="large"/>
+            <Avatar src={icon} size={86}/>
             <Typography.Title level={2} className="logo">
-            <Link to="/">CryptoVerse</Link>
+            <Link to="/">Cinephilia</Link>
             </Typography.Title>
             <Button className='menu-control-container' onClick={() => setActiveMenu(!activeMenu)}>
                 <MenuOutlined/>
@@ -53,8 +53,8 @@ const Navbar = () => {
             <Menu.Item icon={<ClockCircleOutlined/>}>
                 <Link to="/movies">Movies by Decade</Link>
             </Menu.Item>
-            <Menu.Item icon={<ClockCircleOutlined/>}>
-                <Link to="/upcoming">Upcoming</Link>
+            <Menu.Item icon={<CrownOutlined />}>
+                <Link to="/Top100">Top 100 Movies</Link>
             </Menu.Item>
         </Menu>
         )}
