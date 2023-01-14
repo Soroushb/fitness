@@ -11,6 +11,7 @@ const { Meta } = Card;
   const {data} = useGetTopMoviesQuery();
   console.log(data)
   
+  if(!data) return <Loader/>
 
   
 
