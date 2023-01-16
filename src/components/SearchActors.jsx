@@ -16,7 +16,7 @@ const SearchActors = () => {
     <Title level={2} className="heading">
       Search Actors/Actresses:
     </Title>
-    <Col span={8} offset={8}>
+    <Col span={8} offset={6}>
     <Search className='searchInput' placeholder="Search for a movie title" onSearch={onSearch} enterButton />
     </Col>
 

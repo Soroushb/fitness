@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Card, Row, Col, Rate } from 'antd';
+import { Avatar, Card, Row, Col, Rate, Typography } from 'antd';
 import { useGetPopularMoviesQuery } from '../services/popularMoviesApi'
 import Loader from './Loader';
 
@@ -7,6 +7,7 @@ import Loader from './Loader';
 const PopularMovies = () => {
 
   const { Meta } = Card;
+  const {Title} = Typography
   const { data } = useGetPopularMoviesQuery()
   console.log(data)
   if(!data) return <Loader/>
@@ -16,12 +17,18 @@ const PopularMovies = () => {
     
     <>
     
+    <Title className="movies-title" level={3}>
+      Currently Popular Movies
+    </Title>
+
     <Row gutter={[24,24]}>
+  
     {data.map((movie) => (
 
     <Col xs={24} sm={12} lg={6}>
 
     <Card
+    className='movie-card'
     hoverable
     style={{
     width: 250,

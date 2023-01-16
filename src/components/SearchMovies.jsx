@@ -18,7 +18,7 @@ const SearchMovies = () => {
     <Title level={2} className="heading">
       Search Movies:
     </Title>
-    <Col span={8} offset={8}>
+    <Col span={8} offset={6}>
     <Search className='searchInput' placeholder="Search for a movie title" onSearch={onSearch} enterButton />
     </Col>
 
@@ -26,7 +26,7 @@ const SearchMovies = () => {
       {data?.data?.search?.movies.map((movie) => (
          <Col xs={24} sm={12} lg={6} key={movie.emsId}>
           <Link to={`/movie/${movie.emsVersionId}`}>
-          <Card title={`${movie.name}`}  style={{
+          <Card className='movie-search-card' title={`${movie.name}`}  style={{
                                           width: 250,
                                           maxHeight: 400,
                                           minHeight: 400}} 

@@ -17,11 +17,15 @@ const News = ({simplified}) => {
   if(!data) return <Loader/>
 
   return (
+    <>
+
+    <Title className="news-header" level={3}>
+      Latest Movie News
+    </Title>
     <Row gutter={[24,24]}> 
-      
       {data.map((news, i) => (
         <Col xs={24} sm={12} lg={12} key={i}>
-          <Card hoverable className='news-card'>
+          <Card hoverable className='news-card movie-card'>
             <a href={news.link} target="_blank" rel="noreferrer">
               <div className='news-image-container'>
                 <img style={{maxWidth: '200px', maxHeight: '100px'}} src={news?.image} alt="news"></img>
@@ -41,6 +45,8 @@ const News = ({simplified}) => {
         </Col>
       ))} 
     </Row>
+    </>
+    
   )
 }
 

@@ -286,6 +286,29 @@ a:hover{
     .heading{
         margin-top: 20px;
     }
+
+    .movie-card{
+        margin-left: 55px;
+    }
+
+    .news-card{
+        margin-right: 45px;
+    }
+
+    .movies-title{
+        margin-left: 40px;
+        margin-top: 30px;
+    }
+
+    .news-header{
+        margin-top: 25px;
+        margin-left: 70px;
+    }
+
+    .searchInput{
+        width: 150%;
+    }
+    
 }
 
 .select-news{
@@ -389,4 +412,16 @@ width: 70%;
 
 .heading{
     margin-top: 15px;
+}
+
+.popular-movie-card{
+    margin-top: 30px;
+}
+
+.popular-movies-title{
+    margin-top: 30px;
+}
+
+.movie-rate{
+    margin-bottom: 15px;
 }

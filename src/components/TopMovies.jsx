@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Avatar, Card, Row, Col, Rate } from 'antd';
+import { Avatar, Card, Row, Col, Rate, Typography } from 'antd';
 import { useGetTopMoviesQuery } from '../services/NetflixApi';
 import { SearchOutlined } from '@ant-design/icons'
 import Loader from './Loader';
 
 const Upcoming = () => {
 
-
+const {Title} = Typography;
 const { Meta } = Card;
   const {data} = useGetTopMoviesQuery();
   console.log(data)
@@ -18,12 +18,16 @@ const { Meta } = Card;
   return (
     <>
 
+<Title className="movies-title" level={3}>
+      Currently Popular Movies
+</Title>
 <Row gutter={[24,24]}>
         {data.map((movie) => (
 
-<Col xs={24} sm={12} lg={6} className="crypto-card">
+<Col xs={24} sm={12} lg={6} className="movie-card">
 
 <Card
+hoverable
 style={{
 width: 250,
 }}
@@ -31,6 +35,7 @@ cover={
 <img
 alt="example"
 src={movie.image}
+
 />
 }
 >
@@ -39,7 +44,7 @@ src={movie.image}
 </Col>
 <Row>
   <Col>
-  <Rate disabled value={parseFloat(movie.rating)}/> 
+  <Rate className='movie-rate' disabled value={parseFloat(movie.rating)}/> 
   </Col>
   <Col offset={2}>
   <h4 className='rate'>{movie.rating}</h4>
