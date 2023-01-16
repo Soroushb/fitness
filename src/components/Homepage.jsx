@@ -4,7 +4,7 @@ import { Typography, Row, Col, Statistic } from 'antd'
 import { Link } from 'react-router-dom'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 import { useGetMoviesByTitleQuery } from '../services/movieSearchApi'
-import { Cryptocurrencies, News } from '../components'
+import { Cryptocurrencies, News, SearchMovies } from '../components'
 import Loader from './Loader'
 
 const {Title} = Typography
@@ -21,6 +21,8 @@ const Homepage = () => {
     <Title level={2} className="heading">
       Find Details About Movies
     </Title>
+
+    <SearchMovies/>
     
     <div className='home-heading-container'>
         <Title level={2} className="home-title">Top 10 Cryptocurrencies in the world</Title>
