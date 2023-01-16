@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Input, Col, Row, Card, Typography } from 'antd';
+import {Link} from 'react-router-dom'
 import { useGetMoviesByTitleQuery } from '../services/movieSearchApi';
 import movieLogo from '../images/movie.jpg'
 
@@ -23,19 +24,19 @@ const SearchMovies = () => {
 
     <Row gutter={[32,32]}>
       {data?.data?.search?.movies.map((movie) => (
-         <Col xs={24} sm={12} lg={6} key={movie.emsId}>      
-           <Card title={`${movie.name}`}  style={{
+         <Col xs={24} sm={12} lg={6} key={movie.emsId}>
+          <Link to={`/movie/${movie.emsVersionId}`}>
+          <Card title={`${movie.name}`}  style={{
                                           width: 250,
                                           maxHeight: 400,
                                           minHeight: 400}} 
-                                          hoverable>
+                                          hoverable
+                                          >
                                             
               <img height={250} className='crypto-image' src={movie?.posterImage?.url ? movie?.posterImage?.url : movieLogo} alt="movie-logo"/>
-              {console.log(movie?.posterImage?.url)}
-             <p>Price: {movie.name}</p>
+             <p>User Rating: {movie?.userRating?.dtlLikedScore ? `%${movie?.userRating?.dtlLikedScore}` : "Not Available"}</p>
            </Card>
-         
-       
+          </Link>      
      </Col>
       ))}
     </Row>

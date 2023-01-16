@@ -18,7 +18,10 @@ export const movieSearchApi = createApi({
         getMoviesByTitle: builder.query({
         query: (title) => createRequest(`/search?query=${title}`),       
         }),
+        getMovieDetail: builder.query({
+            query: (movieId) => createRequest(`/movies/detail?emsVersionId=${movieId}`)
+        })
     })
 })
 
-export const {useGetMoviesByTitleQuery} = movieSearchApi
+export const {useGetMoviesByTitleQuery, useGetMovieDetailQuery} = movieSearchApi

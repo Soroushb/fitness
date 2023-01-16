@@ -10,7 +10,6 @@ const SearchActors = () => {
   const [searchValue, setSearchValue] = useState("")
   const onSearch = (value) => setSearchValue(value);
   const {data} = useGetMoviesByTitleQuery(searchValue);
-  console.log(data)
   return (
     <>
 
