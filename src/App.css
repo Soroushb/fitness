@@ -425,3 +425,9 @@ width: 70%;
 .movie-rate{
     margin-bottom: 15px;
 }
+
+.movie-detail-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
