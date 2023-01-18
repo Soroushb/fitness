@@ -24,7 +24,7 @@ const SearchActors = () => {
     <Row gutter={[32,32]}>
     {console.log(data)}
       {data?.data?.search?.people.map((actor) => (
-         <Col xs={24} sm={12} lg={6} key={actor.id}>  
+         <Col xs={24} sm={12} lg={6} key={actor.id} align="center">  
           <Link to={`/actor/${actor.id}`}>    
            <Card title={`${actor.name}`}  style={{
                                           width: 250,

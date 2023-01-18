@@ -48,7 +48,7 @@ const Navbar = () => {
                 <Link to="/news">Recent News</Link>
             </Menu.Item>
             <Menu.Item icon={<ClockCircleOutlined/>}>
-                <Link to="/movies">Movies by Decade</Link>
+                <Link to="/movies">Movies by Year</Link>
             </Menu.Item>
             <Menu.Item icon={<CrownOutlined />}>
                 <Link to="/Top100">Top 100 Movies</Link>

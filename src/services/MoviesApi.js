@@ -19,8 +19,8 @@ export const moviesApi = createApi({
         getGenres: builder.query({
         query: () => createRequest(`/titles/utils/genres`),       
         }),
-        getMovies: builder.query({
-        query: () => createRequest(`/titles?year=1970`)
+        getMoviesByYear: builder.query({
+        query: ({page, year}) => createRequest(`/titles?page=${page}&year=${year}`)
         }),
         getMoviesByDecade: builder.query({
         query: ({startYear, page, endYear}) => createRequest(`/titles?startYear=${startYear}&page=${page}&endYear=${endYear}&limit=20`)
@@ -28,4 +28,4 @@ export const moviesApi = createApi({
     })
 })
 
-export const {useGetGenresQuery, useGetMoviesQuery, useGetMoviesByDecadeQuery} = moviesApi
+export const {useGetMoviesByYearQuery, useGetMoviesByDecadeQuery} = moviesApi

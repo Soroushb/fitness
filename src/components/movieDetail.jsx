@@ -5,6 +5,8 @@ import { useGetMovieDetailQuery } from '../services/movieSearchApi'
 import { Card, Typography, Col, Row, Rate, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
 import movieLogo from '../images/movie.jpg'
+import actorLogo from '../images/user.jpg'
+
 
 
 const MovieDetail = () => {
@@ -27,13 +29,17 @@ const MovieDetail = () => {
     <Row gutter={[28,28]} align="top" style={{marginTop:"40px"}}>
         <Col className='movie-detail-card'  xs={24} sm={12} lg={6} span={8}>
             <Card cover={<img src={movieData?.posterImage?.url ? movieData?.posterImage?.url : movieLogo} alt=""/>}>
-            <Col align="center">
-            <h3>%{movieData?.userRating?.dtlLikedScore}</h3>
-            </Col>  
+            
             <Row align="center">
-            <Col align="center">
-            <Rate className='movie-rate' disabled value={parseFloat(movieData?.userRating?.dtlLikedScore)}/> 
-            </Col>
+              {movieData?.userRating?.dtlLikedScore && (
+                <>
+                <Col align="center">
+                <Rate className='movie-rate' disabled value={parseFloat(movieData?.userRating?.dtlLikedScore)}/> 
+                </Col>
+                <Row>
+                </Row>
+                </>
+              )}
             </Row>
             </Card>
         </Col>
@@ -53,14 +59,14 @@ const MovieDetail = () => {
           </>
         )}
         {directors.length > 0 && (
-          <Card className='director-card'>
+          <Card className='director-card' style={{marginTop: "20px"}}>
           <Row>
           <Col span={10}>
           <p>Directed By: <br/><b>{movieData?.directedBy}</b></p>
           </Col>
           <Col>
           {directors.map((director) => (
-          <Avatar size={75} src={director?.headShotImage?.url}/>
+          <Avatar size={75} src={director?.headShotImage?.url ? director?.headShotImage?.url : actorLogo}/>
           ))}
           </Col>
           </Row>
@@ -75,7 +81,7 @@ const MovieDetail = () => {
           </Col>
           <Col >
           {writers.map((writer) => (
-          <Avatar size={75} className='crew-avatar' src={writer?.headShotImage?.url}/>
+          <Avatar size={75} className='crew-avatar' src={writer?.headShotImage?.url ? writer?.headShotImage?.url : actorLogo}/>
           ))}
           </Col>
           </Row>
@@ -84,18 +90,18 @@ const MovieDetail = () => {
           </Card>
         )}
         
-        <h3>Synopsis:</h3>
+        <h3 style={{marginTop: "20px"}}>Synopsis:</h3>
         <p>
         {movieData?.synopsis}
         </p>
         {movieData?.cast.length > 0 && (
-          <Row>
+          <Row  style={{marginTop: "20px"}}>
             {movieData?.cast.map((castMember, id) => (
               <Link to={`/actor/${castMember?.id}`}>
                 <Card hoverable className='actor-card' key={id}>
-                  <Avatar size={75} src={castMember?.headShotImage?.url ? castMember?.headShotImage?.url : movieLogo}/>
+                  <Avatar size={75} src={castMember?.headShotImage?.url ? castMember?.headShotImage?.url : actorLogo}/>
                     <Meta 
-                    cover={<img src={castMember?.headShotImage?.url ? castMember?.headShotImage?.url : movieLogo} alt="cast"/>}
+                    cover={<img src={castMember?.headShotImage?.url ? castMember?.headShotImage?.url : actorLogo} alt="cast"/>}
                     title={castMember?.name}
                     description={castMember?.characterName}/>
                 </Card>

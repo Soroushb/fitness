@@ -19,7 +19,7 @@ const { Meta } = Card;
     <>
 
 <Title className="movies-title" level={3}>
-      Currently Popular Movies
+      IMDB Top 100 Movies
 </Title>
 <Row gutter={[24,24]}>
         {data.map((movie) => (
