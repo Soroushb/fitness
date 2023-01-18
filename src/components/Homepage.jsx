@@ -15,7 +15,6 @@ const Homepage = () => {
 
   return (
     <>
-    <ActorDetail/>
     <SearchMovies/>
     <SearchActors/>
     <News simplified/>

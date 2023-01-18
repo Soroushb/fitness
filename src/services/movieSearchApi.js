@@ -22,7 +22,7 @@ export const movieSearchApi = createApi({
             query: (movieId) => createRequest(`/movies/detail?emsVersionId=${movieId}`)
         }),
         getActorDetail: builder.query({
-            query: (actorId) => createRequest(`/actors/detail?id=62982`)
+            query: (actorId) => createRequest(`/actors/detail?id=${actorId}`)
         })
     })
 })

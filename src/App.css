@@ -440,3 +440,10 @@ width: 70%;
 .crew-avatar{
     margin: 3px;
 }
+
+.show-more-button{
+    cursor: pointer
+}
+
+.actors-movie-card{
+}

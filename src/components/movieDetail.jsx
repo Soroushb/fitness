@@ -3,6 +3,7 @@ import Loader from './Loader'
 import { useParams } from 'react-router-dom'
 import { useGetMovieDetailQuery } from '../services/movieSearchApi'
 import { Card, Typography, Col, Row, Rate, Avatar } from 'antd'
+import { Link } from 'react-router-dom'
 import movieLogo from '../images/movie.jpg'
 
 
@@ -22,11 +23,8 @@ const MovieDetail = () => {
 
   return (
     <>
-    <Title className="movies-title" level={3}>
-      Movie Details
-    </Title>
 
-    <Row gutter={[28,28]}>
+    <Row gutter={[28,28]} align="top" style={{marginTop:"40px"}}>
         <Col className='movie-detail-card'  xs={24} sm={12} lg={6} span={8}>
             <Card cover={<img src={movieData?.posterImage?.url ? movieData?.posterImage?.url : movieLogo} alt=""/>}>
             <Row>
@@ -45,9 +43,9 @@ const MovieDetail = () => {
         </Title>
         {movieData?.genres.length > 0 && (
           <>
+          <b>Genre: </b><br/> 
           {movieData?.genres.map((genre) => (
             <p>
-               <b>Genre: </b><br/> 
               {genre?.name}
               <br/>
             </p>
@@ -93,13 +91,15 @@ const MovieDetail = () => {
         {movieData?.cast.length > 0 && (
           <Row>
             {movieData?.cast.map((castMember, id) => (
+              <Link to={`/actor/${castMember?.id}`}>
                 <Card hoverable className='actor-card' key={id}>
-                  <Avatar size={75} src={castMember?.headShotImage?.url}/>
+                  <Avatar size={75} src={castMember?.headShotImage?.url ? castMember?.headShotImage?.url : movieLogo}/>
                     <Meta 
                     cover={<img src={castMember?.headShotImage?.url ? castMember?.headShotImage?.url : movieLogo} alt="cast"/>}
                     title={castMember?.name}
                     description={castMember?.characterName}/>
                 </Card>
+                </Link>
             ))}
         </Row>
         )}

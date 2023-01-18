@@ -9,14 +9,10 @@ const Movies = () => {
 
     const {Option} = Select
     const {Title} = Typography;
-    const { data } = useGetGenresQuery();
     const decades = [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020]
     //console.log(data)
-    const genres = data?.results
     const [decade, setDecade] = useState(2020)
     const [page, setPage] = useState(1)
-    const { data: movies } = useGetMoviesQuery();
-    const titles = movies?.results
     const {data: moviesByDecade} = useGetMoviesByDecadeQuery({startYear: decade,page: page, endYear: decade+9});
 
     const onChange = (page) => {
