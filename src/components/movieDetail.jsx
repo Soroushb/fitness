@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Loader from './Loader'
 import { useParams } from 'react-router-dom'
 import { useGetMovieDetailQuery } from '../services/movieSearchApi'
-import { Card, Typography, Col, Row, Rate } from 'antd'
+import { Card, Typography, Col, Row, Rate, Avatar } from 'antd'
 import movieLogo from '../images/movie.jpg'
 
 
@@ -14,15 +14,10 @@ const MovieDetail = () => {
   const {data, isFetching} = useGetMovieDetailQuery(movieId)
   const movieData = data?.data?.movie
   console.log(data);
+  const directors = movieData?.crew.filter((member) => member?.role === "Director");
+  const writers = movieData?.crew.filter((member) => member?.role === "Writer");
   
-  const contentStyle = {
-    margin: 0,
-    height: '160px',
-    color: '#fff',
-    lineHeight: '160px',
-    textAlign: 'center',
-    background: '#364d79',
-  };
+
 
   if(isFetching) return <Loader/>
 
@@ -45,18 +40,48 @@ const MovieDetail = () => {
             </Row>
             </Card>
         </Col>
-        <Col span={13}>
+        <Col span={15}>
         <Title>
           {movieData?.name}  
         </Title>
-        <p>Directed By: {movieData?.directedBy}</p>
+        <Card className='director-card'>
+        <Row>
+        <Col span={10}>
+        <p>Directed By: <br/><b>{movieData?.directedBy}</b></p>
+        </Col>
+        <Col>
+        {directors.map((director) => (
+        <Avatar size={85} src={director?.headShotImage?.url}/>
+        ))}
+        </Col>
+        </Row>
+        {console.log(writers)}
+        {writers.length > 0 && (<>
+        <Row>
+        <Col span={10}>
+        Written By: 
+        {writers.map((writer) => (
+          <p><b>{writer?.name}</b></p>
+        ))}
+        </Col>
+        <Col >
+        {writers.map((writer) => (
+        <Avatar size={85} className='crew-avatar' src={writer?.headShotImage?.url}/>
+        ))}
+        </Col>
+        </Row>
+        </>
+        )}
+        
+        </Card>
         <h3>Synopsis:</h3>
         <p>
         {movieData?.synopsis}
         </p>
         <Row>
             {movieData?.cast.map((castMember, id) => (
-                <Card key={id}>
+                <Card hoverable className='actor-card' key={id}>
+                  <Avatar size={75} src={castMember?.headShotImage?.url}/>
                     <Meta 
                     cover={<img src={castMember?.headShotImage?.url ? castMember?.headShotImage?.url : movieLogo} alt="cast"/>}
                     title={castMember?.name}

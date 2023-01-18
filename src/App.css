@@ -431,3 +431,12 @@ width: 70%;
     justify-content: center;
     align-items: center;
 }
+
+.actor-card{
+    size: 10%;
+    margin: 3px;
+}
+
+.crew-avatar{
+    margin: 3px;
+}
