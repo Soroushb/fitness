@@ -16,7 +16,6 @@ const MovieDetail = () => {
   console.log(data);
   const directors = movieData?.crew.filter((member) => member?.role === "Director");
   const writers = movieData?.crew.filter((member) => member?.role === "Writer");
-  
 
 
   if(isFetching) return <Loader/>
@@ -44,41 +43,55 @@ const MovieDetail = () => {
         <Title>
           {movieData?.name}  
         </Title>
-        <Card className='director-card'>
-        <Row>
-        <Col span={10}>
-        <p>Directed By: <br/><b>{movieData?.directedBy}</b></p>
-        </Col>
-        <Col>
-        {directors.map((director) => (
-        <Avatar size={85} src={director?.headShotImage?.url}/>
-        ))}
-        </Col>
-        </Row>
-        {console.log(writers)}
-        {writers.length > 0 && (<>
-        <Row>
-        <Col span={10}>
-        Written By: 
-        {writers.map((writer) => (
-          <p><b>{writer?.name}</b></p>
-        ))}
-        </Col>
-        <Col >
-        {writers.map((writer) => (
-        <Avatar size={85} className='crew-avatar' src={writer?.headShotImage?.url}/>
-        ))}
-        </Col>
-        </Row>
-        </>
+        {movieData?.genres.length > 0 && (
+          <>
+          {movieData?.genres.map((genre) => (
+            <p>
+               <b>Genre: </b><br/> 
+              {genre?.name}
+              <br/>
+            </p>
+          ))}
+          </>
+        )}
+        {directors.length > 0 && (
+          <Card className='director-card'>
+          <Row>
+          <Col span={10}>
+          <p>Directed By: <br/><b>{movieData?.directedBy}</b></p>
+          </Col>
+          <Col>
+          {directors.map((director) => (
+          <Avatar size={75} src={director?.headShotImage?.url}/>
+          ))}
+          </Col>
+          </Row>
+          {console.log(writers)}
+          {writers.length > 0 && (<>
+          <Row>
+          <Col span={10}>
+          Written By: 
+          {writers.map((writer) => (
+            <p><b>{writer?.name}</b></p>
+          ))}
+          </Col>
+          <Col >
+          {writers.map((writer) => (
+          <Avatar size={75} className='crew-avatar' src={writer?.headShotImage?.url}/>
+          ))}
+          </Col>
+          </Row>
+          </>
+          )}
+          </Card>
         )}
         
-        </Card>
         <h3>Synopsis:</h3>
         <p>
         {movieData?.synopsis}
         </p>
-        <Row>
+        {movieData?.cast.length > 0 && (
+          <Row>
             {movieData?.cast.map((castMember, id) => (
                 <Card hoverable className='actor-card' key={id}>
                   <Avatar size={75} src={castMember?.headShotImage?.url}/>
@@ -89,6 +102,7 @@ const MovieDetail = () => {
                 </Card>
             ))}
         </Row>
+        )}
         </Col>
     </Row>
 

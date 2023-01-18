@@ -16,12 +16,15 @@ export const movieSearchApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getMoviesByTitle: builder.query({
-        query: (title) => createRequest(`/search?query=${title}`),       
+            query: (title) => createRequest(`/search?query=${title}`),       
         }),
         getMovieDetail: builder.query({
             query: (movieId) => createRequest(`/movies/detail?emsVersionId=${movieId}`)
+        }),
+        getActorDetail: builder.query({
+            query: (actorId) => createRequest(`/actors/detail?id=62982`)
         })
     })
 })
 
-export const {useGetMoviesByTitleQuery, useGetMovieDetailQuery} = movieSearchApi
+export const {useGetMoviesByTitleQuery, useGetMovieDetailQuery, useGetActorDetailQuery} = movieSearchApi

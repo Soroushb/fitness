@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import { Layout, Typography, Space } from 'antd'
-import {Navbar, Homepage, PopularMovies, Cryptocurrencies, CryptoDetails, News, Movies, TopMovies, MovieDetail} from './components'
+import {Navbar, Homepage, PopularMovies, Cryptocurrencies, CryptoDetails, News, Movies, TopMovies, MovieDetail, ActorDetail} from './components'
 import './App.css'
 
 
@@ -31,6 +31,8 @@ const App = () => {
                         </Route>
                         <Route exact path="/movie/:movieId" element={<MovieDetail/>}>
                         </Route>
+                        <Route exact path="/actor/:actorId" element={<ActorDetail/>}>
+                        </Route>
                     </Routes>
                 </div>
             </Layout>
@@ -40,8 +42,9 @@ const App = () => {
                 All Rights Reserved.
             </Typography.Title>
             <Space>
-                <Link to="/">Home</Link>
-                <Link to="/popularmovies">Popular</Link>
+                <Link to="/">Home | </Link>
+                <Link to="/popularmovies">Popular | </Link>
+                <Link to="/top100">Top Movies | </Link>
                 <Link to="/news">News</Link>
             </Space>
         </div>
