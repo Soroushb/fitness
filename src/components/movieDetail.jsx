@@ -27,12 +27,12 @@ const MovieDetail = () => {
     <Row gutter={[28,28]} align="top" style={{marginTop:"40px"}}>
         <Col className='movie-detail-card'  xs={24} sm={12} lg={6} span={8}>
             <Card cover={<img src={movieData?.posterImage?.url ? movieData?.posterImage?.url : movieLogo} alt=""/>}>
-            <Row>
-            <Col>
-            <Rate className='movie-rate' disabled value={parseFloat(movieData?.userRating?.dtlLikedScore)}/> 
-            </Col>
-            <Col>
+            <Col align="center">
             <h3>%{movieData?.userRating?.dtlLikedScore}</h3>
+            </Col>  
+            <Row align="center">
+            <Col align="center">
+            <Rate className='movie-rate' disabled value={parseFloat(movieData?.userRating?.dtlLikedScore)}/> 
             </Col>
             </Row>
             </Card>

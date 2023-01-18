@@ -445,5 +445,6 @@ width: 70%;
     cursor: pointer
 }
 
-.actors-movie-card{
+.actor-movie-image{
+    max-width: 150px;
 }

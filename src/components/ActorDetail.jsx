@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Loader from './Loader'
 import { useParams } from 'react-router-dom'
 import { useGetActorDetailQuery } from '../services/movieSearchApi'
-import { Card, Col, Row, Typography, Pagination} from 'antd'
+import { Card, Col, Row, Typography, Avatar} from 'antd'
 import { Link } from 'react-router-dom'
 import actorIcon from '../images/user.jpg'
 import filmIcon from '../images/movie.jpg'
@@ -44,18 +44,17 @@ const ActorDetail = () => {
       )}
       {actor?.filmography.length > 0 && (
         <Row gutter={[14,14]}>
-        <Col xs={24} sm={12} lg={10} align="middle">
         {actor?.filmography.map((film) => (
           <Link to={`/movie/${film?.emsVersionId}`}>
-             <Card className='actors-movie-card'>
-            <img src={film?.posterImage?.url ? film?.posterImage?.url : filmIcon} alt="movie-poster" height={200}/>
+             <Card hoverable className='actors-movie-card'>
+            <img className='actor-movie-image' src={film?.posterImage?.url ? film?.posterImage?.url : filmIcon} alt="movie-poster" height={200}/>
             <Meta 
             title={film?.name}
             />            
           </Card>
           </Link>
         ))}
-        </Col>
+        
       </Row>
       )}
       </Col>
