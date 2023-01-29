@@ -23,8 +23,7 @@ const PopularMovies = () => {
 
     <Row gutter={[24,24]}>
   
-    {data.map((movie) => (
-
+    {data.map((movie) => movie?.title ? (
     <Col xs={24} sm={12} lg={6}>
 
     <Card
@@ -52,7 +51,7 @@ description={`${movie.year}
 </Card>
 </Col>
     
-        ))}
+        ) : (<></>))}
 
         </Row>
 

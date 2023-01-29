@@ -31,7 +31,9 @@ const ActorDetail = () => {
         </Card>
       </Col>
       <Col span={15}>
-      <Title>Biography:</Title>
+      {actor?.biography && (
+              <Title>Biography:</Title>
+      )}
       {actor?.biography && !showMore && (
       <p>
         {actor?.biography.substring(0, 1000)}...<Title className='show-more-button' style={{color: "blue"}} level={3} onClick={() => setShowMore(!showMore)}>Show more</Title>
@@ -43,6 +45,8 @@ const ActorDetail = () => {
       </p>
       )}
       {actor?.filmography.length > 0 && (
+        <>
+        <Title>Filmography:</Title>
         <Row gutter={[14,14]}>
         {actor?.filmography.map((film) => (
           <Link to={`/movie/${film?.emsVersionId}`}>
@@ -54,8 +58,8 @@ const ActorDetail = () => {
           </Card>
           </Link>
         ))}
-        
       </Row>
+        </>
       )}
       </Col>
     </Row>
