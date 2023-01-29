@@ -1,24 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {Select, Typography, Row, Col, Avatar, Card} from 'antd'
 import moment from 'moment'
-import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
-import { useGetCryptosQuery } from '../services/cryptoApi'
+import { useGetMoviesNewsQuery } from '../services/movieNewsApi'
 import Loader from './Loader';
 
-
 const {Text, Title} = Typography;
-const { Option } = Select;
-const demoImage = 'https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News';
 
-const News = ({simplified}) => {
+const News = () => {
 
-  const { data } = useGetCryptoNewsQuery()
+  const { data } = useGetMoviesNewsQuery()
 
   if(!data) return <Loader/>
 
   return (
+    
     <>
-
     <Title className="news-header" level={3}>
       Latest Movie News
     </Title>

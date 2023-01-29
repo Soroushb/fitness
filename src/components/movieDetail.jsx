@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Loader from './Loader'
 import { useParams } from 'react-router-dom'
 import { useGetMovieDetailQuery } from '../services/movieSearchApi'

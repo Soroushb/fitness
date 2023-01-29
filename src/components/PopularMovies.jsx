@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Card, Row, Col, Rate, Typography } from 'antd';
+import {  Card, Row, Col, Typography } from 'antd';
 import { useGetPopularMoviesQuery } from '../services/popularMoviesApi'
 import Loader from './Loader';
 

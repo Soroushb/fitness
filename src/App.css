@@ -382,10 +382,10 @@ width: 70%;
 .crypto-card-container{
     min-height: 65vh !important;
 }
-.crypto-card{
+.film-card{
     min-width: 250px;
 }
-.crypto-card .crypto-image{
+.film-card .film-image{
     width:35px;
 }
 .select-timeperiod{
@@ -447,4 +447,13 @@ width: 70%;
 
 .actor-movie-image{
     max-width: 150px;
+}
+
+.actors-movie-card{
+    max-width: 190px;
+    margin: 10px;
+}
+
+.actor-card{
+    max-width: 130px;
 }

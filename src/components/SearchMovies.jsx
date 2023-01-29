@@ -33,7 +33,7 @@ const SearchMovies = () => {
                                           hoverable
                                           >
                                             
-              <img height={250} className='crypto-image' src={movie?.posterImage?.url ? movie?.posterImage?.url : movieLogo} alt="movie-logo" style={{maxWidth: "200px"}}/>
+              <img height={250} className='film-image' src={movie?.posterImage?.url ? movie?.posterImage?.url : movieLogo} alt="movie-logo" style={{maxWidth: "200px"}}/>
              <p>User Rating: {movie?.userRating?.dtlLikedScore ? `%${movie?.userRating?.dtlLikedScore}` : "Not Available"}</p>
            </Card>
           </Link>      

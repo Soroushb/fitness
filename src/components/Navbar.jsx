@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
-import { HomeOutlined, StarOutlined, BulbOutlined, FundOutlined, MenuOutlined, ClockCircleOutlined, CrownOutlined } from '@ant-design/icons'
+import { HomeOutlined, StarOutlined, BulbOutlined, MenuOutlined, ClockCircleOutlined, CrownOutlined } from '@ant-design/icons'
 import icon from '../images/cinema.jpg'
 
 const Navbar = () => {

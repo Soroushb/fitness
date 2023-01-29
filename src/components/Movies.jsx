@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import {Card, Space, Row, Col, Select, Typography, Pagination, Input } from 'antd';
-import { useGetMoviesByDecadeQuery, useGetMoviesByYearQuery } from '../services/MoviesApi';
+import React, { useState } from 'react'
+import {Card, Row, Col, Typography, Pagination, Input } from 'antd';
+import { useGetMoviesByYearQuery } from '../services/MoviesApi';
 import { SearchOutlined } from '@ant-design/icons'
 import Loader from './Loader';
 
@@ -35,7 +35,7 @@ const Movies = () => {
   
     
           {moviesByYear?.results?.map((movie) => ((movie?.titleType?.text === "Movie" || "tvSeries") && (movie?.titleType?.isEpisode === false)) ? (
-            <Col xs={24} sm={12} lg={6} className="crypto-card">
+            <Col xs={24} sm={12} lg={6} className="film-card">
             <Card hoverable className='movies-card'>
               <div className='news-image-container'>
                 <Title className='news-title' level={4}>{movie?.titleText?.text}</Title>

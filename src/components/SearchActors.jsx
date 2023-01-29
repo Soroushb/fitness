@@ -32,7 +32,7 @@ const SearchActors = () => {
                                           minHeight: 400}} 
                                           hoverable>
                                             
-              <img height={250} width={200} className='crypto-image' src={ actor?.headShotImage?.url ? actor?.headShotImage?.url : actorLogo} alt="movie-logo"/>
+              <img height={250} width={200} className='film-image' src={ actor?.headShotImage?.url ? actor?.headShotImage?.url : actorLogo} alt="movie-logo"/>
            </Card>
            </Link>
        
