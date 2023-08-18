@@ -8,6 +8,7 @@ const {Text, Title} = Typography;
 
 const News = () => {
 
+  const parser = new DOMParser();
   const { data } = useGetMoviesNewsQuery()
 
   if(!data) return <Loader/>
@@ -19,23 +20,19 @@ const News = () => {
       Latest Movie News
     </Title>
     <Row gutter={[24,24]}> 
-      {data.map((news, i) => (
+      {data.data.newsStories.map((news, i) => (
         <Col xs={24} sm={12} lg={12} key={i}>
           <Card hoverable className='news-card movie-card'>
             <a href={news.link} target="_blank" rel="noreferrer">
               <div className='news-image-container'>
-                <img style={{maxWidth: '200px', maxHeight: '100px'}} src={news?.image} alt="news"></img>
+                <img style={{maxWidth: '200px', maxHeight: '100px'}} src={news?.mainImage?.url} alt="news"></img>
               </div>
-              <Title className='news-title' level={4}>{news.title}</Title>
-              <p>
-                {`${news.description.substring(0, 100)}...`}
-              </p>
-              <div className='provider-container'>
-                <div>
-                  <Avatar src={news.image} alt="news"/>
-                </div>
-                <Text>{moment(news.date).startOf('ss').fromNow()}</Text>
-              </div>
+              <html>
+              <Title className='news-title' level={4}>{news?.title}</Title>
+
+              </html>
+            
+              
             </a>
           </Card>
         </Col>
