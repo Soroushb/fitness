@@ -3,14 +3,17 @@ import { Input, Col, Row, Card, Typography } from 'antd';
 import {Link} from 'react-router-dom'
 import { useGetMoviesByTitleQuery } from '../services/movieSearchApi';
 import movieLogo from '../images/movie.jpg'
+import Loader from './Loader';
 
 const SearchMovies = () => {
 
   const {Search} = Input
   const {Title} = Typography
   const [searchValue, setSearchValue] = useState("")
-  const onSearch = (value) => setSearchValue(value);
+  const [movieLoader,setMovieLoader] = useState(false)
+  const onSearch = (value) => {setSearchValue(value); setMovieLoader(true)}
   const {data} = useGetMoviesByTitleQuery(searchValue);
+
 
   return (
     <>
@@ -21,6 +24,8 @@ const SearchMovies = () => {
     <Col span={8} offset={6}>
     <Search className='searchInput' placeholder="Search for a movie title" onSearch={onSearch} enterButton />
     </Col>
+
+    
 
     <Row gutter={[32,32]}>
       {data?.data?.search?.movies.map((movie) => (
