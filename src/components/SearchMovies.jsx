@@ -17,11 +17,11 @@ const SearchMovies = () => {
 
   return (
     <>
-
+    <div className='search-movies'>
     <Title level={2} className="heading" style={{marginTop: "30px"}}> 
       Search Movies:
     </Title>
-    <Col span={8} offset={6}>
+    <Col span={8} style={{marginRight: "25px"}}>
     <Search className='searchInput' placeholder="Search for a movie title" onSearch={onSearch} enterButton />
     </Col>
 
@@ -45,6 +45,7 @@ const SearchMovies = () => {
      </Col>
       ))}
     </Row>
+    </div>
     </>
   )
 

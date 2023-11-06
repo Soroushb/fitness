@@ -29,10 +29,7 @@ const News = () => {
               </div>
               <html>
               <Title className='news-title' level={4}>{news?.title}</Title>
-
               </html>
-            
-              
             </a>
           </Card>
         </Col>

@@ -13,12 +13,12 @@ const SearchActors = () => {
   const {data} = useGetMoviesByTitleQuery(searchValue);
   return (
     <>
-
-    <Title level={2} className="heading">
+    <div className='search-actors'>
+    <Title level={2} className="heading" style={{marginTop: "30px"}}>
       Search Actors/Actresses:
     </Title>
-    <Col span={8} offset={6}>
-    <Search className='searchInput' placeholder="Search for a movie title" onSearch={onSearch} enterButton />
+    <Col span={8} style={{marginRight: "25px"}}>
+    <Search className='searchInput' placeholder="Search for an actor/actress" onSearch={onSearch} enterButton />
     </Col>
 
     <Row gutter={[32,32]}>
@@ -40,7 +40,7 @@ const SearchActors = () => {
       ))}
     </Row>
 
-
+    </div>
     </>
   )
 
