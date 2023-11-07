@@ -23,14 +23,20 @@ const News = () => {
       {data.data.newsStories.map((news, i) => (
         <Col xs={24} sm={12} lg={12} key={i}>
           <Card hoverable className='news-card movie-card'>
-            <a href={news.link} target="_blank" rel="noreferrer">
+            <div>
               <div className='news-image-container'>
                 <img style={{maxWidth: '200px', maxHeight: '100px'}} src={news?.mainImage?.url} alt="news"></img>
               </div>
               <html>
               <Title className='news-title' level={4}>{news?.title}</Title>
               </html>
+            </div>
+            <a href={news.link} target="_blank" rel="noreferrer">
+            <div className='read-more'>
+            <p className='button' style={{color: "white"}}>Read More</p>
+            </div>
             </a>
+
           </Card>
         </Col>
       ))} 
