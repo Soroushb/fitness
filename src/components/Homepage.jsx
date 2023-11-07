@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { News, SearchMovies, SearchActors } from '../components'
+import {BiSolidLeftArrow, BiSolidRightArrow} from 'react-icons/bi'
 
 
 const Homepage = () => {
@@ -8,6 +9,16 @@ const Homepage = () => {
 
   return (
     <>
+
+    <div className='arrow-container'>
+      <div className={`${search === "MOVIE" ? "active" : ""}`}>
+        <BiSolidLeftArrow onClick={() => setSearch("MOVIE")}/>
+      </div>
+      <div className={`${search === "ACTOR" ? "active" : ""}`}>
+        <BiSolidRightArrow onClick={() => setSearch("ACTOR")}/>
+      </div>
+    </div>
+
     {search === "MOVIE" && (
           <SearchMovies/>
     )}
@@ -16,10 +27,7 @@ const Homepage = () => {
           <SearchActors/>
     )}
 
-    <div>
-      <button onClick={() => setSearch("MOVIE")}>movie</button>
-      <button onClick={() => setSearch("ACTOR")}>actor</button>
-    </div>
+   
     <News simplified/>
     </>
   )

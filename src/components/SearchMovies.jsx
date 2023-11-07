@@ -18,7 +18,7 @@ const SearchMovies = () => {
   return (
     <>
     <div className='search-movies'>
-    <Title level={2} className="heading" style={{marginTop: "30px"}}> 
+    <Title level={2} className="heading" > 
       Search Movies:
     </Title>
     <Col span={8} style={{marginRight: "25px"}}>

@@ -14,7 +14,7 @@ const SearchActors = () => {
   return (
     <>
     <div className='search-actors'>
-    <Title level={2} className="heading" style={{marginTop: "30px"}}>
+    <Title level={2} className="heading" >
       Search Actors/Actresses:
     </Title>
     <Col span={8} style={{marginRight: "25px"}}>
