@@ -149,7 +149,8 @@ a:hover{
 
     .arrow-container{
         display: flex;
-        margin-top: 30px;
+        width: 100% !important;
+        margin-top: 50px;
         font-size:x-large;
         justify-content: center;
         cursor: pointer;    
@@ -159,8 +160,11 @@ a:hover{
 
 .arrow-container{
 
+    width: 25%;
+    justify-content: center;
     display: flex;
     font-size:x-large;
+    color: grey;
     cursor: pointer;    
 
 }
@@ -365,6 +369,8 @@ a:hover{
     .searchInput{
         width: 150%;
     }
+
+    
     
 }
 
