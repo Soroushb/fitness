@@ -3,6 +3,8 @@ import { Routes, Route, Link } from 'react-router-dom'
 import { Layout, Typography, Space } from 'antd'
 import {Navbar, Homepage, PopularMovies, News, Movies, TopMovies, MovieDetail, ActorDetail} from './components'
 import './App.css'
+import Fitness from './components/Fitness'
+import SearchExercise from './components/SearchExercise'
 
 
 const App = () => {
@@ -15,11 +17,15 @@ const App = () => {
             <Layout>
                 <div className='routes'>
                     <Routes>
-                        <Route exact path='/' element={<Homepage/>} >
+                        <Route exact path='/' element={<Fitness/>} >
                         </Route>
                         <Route exact path='/popularmovies' element={<PopularMovies/>}>
                         </Route>
                         <Route exact path='/news' element={ <News/>}>
+                        </Route>
+                        <Route exact path='/fitness' element={ <Fitness/>}>
+                        </Route>
+                        <Route exact path='/searchExercise' element={ <SearchExercise/>}>
                         </Route>
                         <Route exact path='/movies' element={ <Movies/>}>
                         </Route>

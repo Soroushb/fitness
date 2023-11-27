@@ -53,6 +53,12 @@ const Navbar = () => {
             <Menu.Item icon={<CrownOutlined />}>
                 <Link to="/Top100">Top 100 Movies</Link>
             </Menu.Item>
+            <Menu.Item icon={<ClockCircleOutlined/>}>
+                <Link to="/fitness">Fitness</Link>
+            </Menu.Item>
+            <Menu.Item icon={<ClockCircleOutlined/>}>
+                <Link to="/searchExercise">Find Exercise</Link>
+            </Menu.Item>
         </Menu>
         )}
     </div>

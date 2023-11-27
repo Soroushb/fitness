@@ -15,9 +15,12 @@ export const FitnessApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
         getExercises: builder.query({
-        query: () => createRequest('/exercises'),       
-        })
+            query: () => createRequest('/exercises'),       
+        }),
+        getExerciseByName: builder.query({
+            query: (exercise) => createRequest(`/exercises/name/${exercise}`),       
+        }),
     })
 })
 
-export const {useGetExercisesQuery} = FitnessApi
+export const {useGetExercisesQuery, useGetExerciseByNameQuery} = FitnessApi
