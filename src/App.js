@@ -5,6 +5,7 @@ import {Navbar, Homepage, PopularMovies, News, Movies, TopMovies, MovieDetail, A
 import './App.css'
 import Fitness from './components/Fitness'
 import SearchExercise from './components/SearchExercise'
+import ExerciseDetail from './components/ExerciseDetail'
 
 
 const App = () => {
@@ -26,6 +27,8 @@ const App = () => {
                         <Route exact path='/fitness' element={ <Fitness/>}>
                         </Route>
                         <Route exact path='/searchExercise' element={ <SearchExercise/>}>
+                        </Route>
+                        <Route exact path='/exerciseDetails/:id' element={ <ExerciseDetail/>}>
                         </Route>
                         <Route exact path='/movies' element={ <Movies/>}>
                         </Route>
