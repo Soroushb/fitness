@@ -23,7 +23,7 @@ const ExerciseDetail = () => {
     <Title>
             {data?.name.toUpperCase()}
     </Title>
-    <Typography><h3>EQUIPMENT: {data.equipment.toUpperCase()}</h3></Typography>
+    <Typography><h3>EQUIPMENT: {data?.equipment.toUpperCase()}</h3></Typography>
     </div>
     <Row className='exercise-card-container' style={{marginTop:"40px"}}>
       <Col className='exercise-detail-container'>
@@ -36,7 +36,7 @@ const ExerciseDetail = () => {
     <div className='instructions'>
         {data?.instructions.map((instruction, index) => (
             <div className='instruction-list'>
-                <ol type='1'>
+                <ol>
                     <li><b>{index + 1}. </b>{instruction}</li>
                 </ol>
             </div>

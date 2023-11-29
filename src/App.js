@@ -6,7 +6,7 @@ import './App.css'
 import Fitness from './components/Fitness'
 import SearchExercise from './components/SearchExercise'
 import ExerciseDetail from './components/ExerciseDetail'
-
+import ExerciseByTarget from './components/ExerciseByTarget'
 
 const App = () => {
   return (
@@ -29,6 +29,8 @@ const App = () => {
                         <Route exact path='/searchExercise' element={ <SearchExercise/>}>
                         </Route>
                         <Route exact path='/exerciseDetails/:id' element={ <ExerciseDetail/>}>
+                        </Route>
+                        <Route exact path='/exerciseByTarget' element={<ExerciseByTarget/>}>
                         </Route>
                         <Route exact path='/movies' element={ <Movies/>}>
                         </Route>

@@ -22,9 +22,12 @@ export const FitnessApi = createApi({
         }),
         getExerciseDetails: builder.query({
             query: (id) => createRequest(`exercises/exercise/${id}`) 
+        }),
+        getExerciseTargets: builder.query({
+            query: () => createRequest(`exercises/targetList`)
         })
     })
 
 })
 
-export const {useGetExercisesQuery, useGetExerciseByNameQuery, useGetExerciseDetailsQuery} = FitnessApi
+export const {useGetExercisesQuery, useGetExerciseByNameQuery, useGetExerciseDetailsQuery, useGetExerciseTargetsQuery} = FitnessApi
