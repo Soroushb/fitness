@@ -64,6 +64,9 @@ const Navbar = () => {
             <Menu.Item icon={<ClockCircleOutlined/>}>
                 <Link to="/exerciseByTarget">Target a Muscle</Link>
             </Menu.Item>
+            <Menu.Item icon={<ClockCircleOutlined/>}>
+                <Link to="/exerciseByBodyPart">Target a Muscle</Link>
+            </Menu.Item>
         </Menu>
         )}
     </div>

@@ -17,21 +17,21 @@ const SearchExercise = () => {
 
   return (
     <>
-    <div className='search-actors'>
-    <Title level={2} className="heading" >
+    <div className='search-exercises'>
+    <Title level={2} className="heading" style={{color: 'white'}}>
       Search for an Exercise:
     </Title>
-    <Col span={8} style={{marginRight: "25px"}}>
+    <Col span={8} style={{marginBottom: "45px"}}>
     <Search className='searchInput' placeholder="Search for an exercise" onSearch={onSearch} enterButton />
     </Col>
 
     <Row gutter={[32,32]}>
     {console.log(data)}
       {data?.map((exercise) => (
-         <Col xs={24} sm={12} lg={12} key={exercise.id} align="center">  
+         <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">  
             <Link to={`/exerciseDetails/${exercise.id}`}>
            <Card title={`${exercise.name.toUpperCase()}`}  style={{
-                                          width: 400,
+                                          width: 300,
                                           maxHeight: 400,
                                           minHeight: 400}} 
                                           hoverable>
