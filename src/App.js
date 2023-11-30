@@ -7,7 +7,7 @@ import Fitness from './components/Fitness'
 import SearchExercise from './components/SearchExercise'
 import ExerciseDetail from './components/ExerciseDetail'
 import ExerciseByTarget from './components/ExerciseByTarget'
-import ExerciseByBodyPart from './components/ExercisesByBodyPart'
+import ExercisesByBodyPart from './components/ExercisesByBodyPart'
 
 const App = () => {
 
@@ -43,7 +43,7 @@ const App = () => {
                         </Route>
                         <Route exact path='/exerciseByTarget' element={<ExerciseByTarget/>}>
                         </Route>
-                        <Route exact path='/exerciseByBodyPart' element={<ExerciseByBodyPart/>}>
+                        <Route exact path='/exerciseByBodyPart' element={<ExercisesByBodyPart/>}>
                         </Route>
                         <Route exact path='/movies' element={ <Movies/>}>
                         </Route>

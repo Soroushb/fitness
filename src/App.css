@@ -600,21 +600,29 @@ width: 70%;
     font-weight: bold;
 }
 
+.target-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .muscle-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    max-width: 70%;
+    max-width: 75%;
     margin: 20px;
-  }
-  
-  .muscle {
-    width: calc(33.33% - 10px); /* Three items per row by default */
+}
+.muscle {
+    flex: 1;
     box-sizing: border-box;
     margin: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     text-align: center;
-  }
+}
   
   .muscle button {
     width: 100%;
@@ -627,6 +635,23 @@ width: 70%;
     transition: background-color 0.3s, transform 0.2s;
     font-size: 1rem;
     font-weight: 600;
+  }
+
+  .muscle button.selected {
+    background-color: #e74c3c; /* Change this to your desired color for the selected button */
+  }
+
+  .info{
+    background-color: #2980b9;
+    border-radius: 50%;
+    padding: 10px;
+    width: 50%;
+    color: white;
+    font-weight: bold;
+  }
+
+  .info:hover{
+    scale: 110%;
   }
   
   .muscle button:hover {

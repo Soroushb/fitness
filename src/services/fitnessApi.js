@@ -27,7 +27,7 @@ export const FitnessApi = createApi({
             query: () => createRequest(`exercises/targetList`)
         }),
         getExerciseByTarget: builder.query({
-            query: (muscle) => createRequest(`exercises/target/spine`)
+            query: (muscle) => createRequest(`/exercises/target/${muscle}`)
         }),
         getExerciseBodyParts: builder.query({
             query: () => createRequest(`/exercises/bodyPartList`)

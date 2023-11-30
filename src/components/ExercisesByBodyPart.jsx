@@ -3,11 +3,11 @@ import { Input, Col, Row, Card, Typography } from 'antd';
 
 import { useGetExerciseBodyPartsQuery } from '../services/fitnessApi';
 
-const SearchExercise = () => {
+const ExercisesByBodyPart = () => {
 
 
-  const {bodyParts} = useGetExerciseBodyPartsQuery();
-  console.log(bodyParts)
+  const {data} = useGetExerciseBodyPartsQuery();
+  console.log(data)
 
   
 
@@ -18,13 +18,13 @@ const SearchExercise = () => {
       
 
       <div className='muscle-container'>
-        {bodyParts?.map((bodyPart, index) => (
+        {data?.map((bodyPart, index) => (
           <div className='' key={index}>
             <button>{bodyPart.bodyPart}</button>
           </div>
         ))}
       </div>
-      <p>{bodyParts}</p>
+      <p>{data}</p>
 
 
 
@@ -32,4 +32,4 @@ const SearchExercise = () => {
   );
 }
 
-export default SearchExercise
+export default ExercisesByBodyPart

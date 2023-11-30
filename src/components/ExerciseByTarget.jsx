@@ -4,42 +4,51 @@ import actorLogo from '../images/user.jpg'
 import { Link } from 'react-router-dom';
 import { useGetExerciseTargetsQuery, useGetExerciseByTargetQuery, useGetExerciseBodyPartsQuery } from '../services/fitnessApi';
 
-const SearchExercise = () => {
+const ExerciseByTarget = () => {
 
 
   const [muscle, setMuscle] = useState('abs')
   const {data} = useGetExerciseTargetsQuery();
   const {bodyParts} = useGetExerciseBodyPartsQuery();
-  const {targetData} = useGetExerciseByTargetQuery('spine')
-  console.log(bodyParts)
+  const {data : targetData} = useGetExerciseByTargetQuery(muscle)
+  console.log(targetData)
 
   
 
   return (
-    <div>
+    <div className='target-container'>
       <h1 style={{ textAlign: 'center' }}>Target a Specific Muscle</h1>
 
       <div className='muscle-container'>
-        {data?.map((muscle, index) => (
+        {data?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>
-            <button onClick={() => setMuscle(muscle)}>{muscle}</button>
+            <button style={{}} onClick={() => {setMuscle(selectedMuscle)}} className={selectedMuscle === muscle ? 'selected' : ''}>{selectedMuscle.toUpperCase()}</button>
           </div>
         ))}
       </div>
 
-      <div className='muscle-container'>
-        {bodyParts?.map((bodyPart, index) => (
-          <div className='' key={index}>
-            <button>{bodyPart.bodyPart}</button>
-          </div>
-        ))}
-      </div>
-      <p>{bodyParts}</p>
-
+      <Row gutter={[32,32]}>
+    {console.log(data)}
+      {targetData?.map((exercise) => (
+         <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">  
+            <Link to={`/exerciseDetails/${exercise.id}`}>
+           <Card title={`${exercise.name.toUpperCase()}`}  style={{
+                                          width: 300,
+                                          maxHeight: 400,
+                                          minHeight: 400}} 
+                                          hoverable>
+                                            
+              <img height={250} width={200} className='film-image' src={ exercise?.gifUrl} alt="exercise gif"/>
+              <div className='info'>More info...</div>
+           </Card>
+           </Link>
+     </Col>
+      ))}
+    </Row>
 
 
     </div>
   );
 }
 
-export default SearchExercise
+export default ExerciseByTarget
