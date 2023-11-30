@@ -12,14 +12,13 @@ const { Meta } = Card;
   if(!data) return <Loader/>
 
   return (
-    <div>{data.map((exercise) => (
-
-        <>
-            <p>{exercise.bodyPart}</p>
-            <img src={exercise.gifUrl} alt='exercise'/>
-        </>
-        
-    ))}</div>
+    <div className="hero-section">
+  <div className="hero-content">
+    <h1 className="hero-title">Your Fitness Journey Starts Here</h1>
+    <p className="hero-subtitle">Discover a healthier and happier you with our fitness programs.</p>
+    <a href="/searchExercise" className="hero-button">Get Started</a>
+  </div>
+</div>
   )
 }
 

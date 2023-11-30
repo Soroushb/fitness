@@ -43,21 +43,7 @@ const Navbar = () => {
             <Menu.Item icon={<HomeOutlined/>}>
                 <Link to="/">Home</Link>
             </Menu.Item>
-            <Menu.Item icon={<StarOutlined />}>
-                <Link to="/popularmovies">Popular New Movies</Link>
-            </Menu.Item>
-            <Menu.Item icon={<BulbOutlined/>}>
-                <Link to="/news">Recent News</Link>
-            </Menu.Item>
-            <Menu.Item icon={<ClockCircleOutlined/>}>
-                <Link to="/movies">Movies by Year</Link>
-            </Menu.Item>
-            <Menu.Item icon={<CrownOutlined />}>
-                <Link to="/Top100">Top 100 Movies</Link>
-            </Menu.Item>
-            <Menu.Item icon={<ClockCircleOutlined/>}>
-                <Link to="/fitness">Fitness</Link>
-            </Menu.Item>
+            
             <Menu.Item icon={<ClockCircleOutlined/>}>
                 <Link to="/searchExercise">Find Exercise</Link>
             </Menu.Item>
