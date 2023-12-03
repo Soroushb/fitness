@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import { useGetExerciseTargetsQuery, useGetExerciseByTargetQuery, useGetExerciseBodyPartsQuery } from '../services/fitnessApi';
 import { IoMdFitness } from "react-icons/io";
 import { GiMuscleUp, GiLeg } from "react-icons/gi";
-
+import DropDown from './DropDown';
 
 const ExerciseByMuscle = () => {
 
 
+  const {Title} = Typography
   const [muscle, setMuscle] = useState('abs')
   const {data} = useGetExerciseTargetsQuery();
   const {bodyParts} = useGetExerciseBodyPartsQuery();
@@ -20,7 +21,11 @@ const ExerciseByMuscle = () => {
 
   return (
     <div className='target-container'>
-      
+       <Title style={{color: 'white'}}>
+            By Muscle
+       </Title>
+       <DropDown options={data} selectedOption={muscle} setMuscle={setMuscle}/>
+
       <div className='muscle-container'>
         {data?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>

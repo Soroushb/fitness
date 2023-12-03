@@ -21,7 +21,7 @@ const SearchExercise = () => {
     <Title level={2} className="heading" style={{color: 'white'}}>
       Search for an Exercise:
     </Title>
-    <Col span={8} style={{marginBottom: "45px"}}>
+    <Col span={8} style={{marginBottom: "45px", marginRight: "40px"}}>
     <Search className='searchInput' placeholder="Search for an exercise" onSearch={onSearch} enterButton />
     </Col>
 
@@ -41,6 +41,7 @@ const SearchExercise = () => {
            </Link>
      </Col>
       ))}
+      {data?.length === 0 && (<Title style={{color: "white", marginBottom: "200px"}}>No Results Found.<br/></Title>)}
     </Row>
     </div>
     </>

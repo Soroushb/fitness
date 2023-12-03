@@ -46,10 +46,6 @@ const Navbar = () => {
             <div className={`dot ${activeLink === "MUSCLE" ? "active-dot" : ""}`}/>
             <Link className='link' to="/exerciseByTarget">TARGET A MUSCLE</Link>
             </div>
-            <div onClick={() => setActiveLink("BODY")} className='single-link-container'>
-            <div className={`dot ${activeLink === "BODY" ? "active-dot" : ""}`}/>
-            <Link className='link' to="/exerciseByBodyPart">TARGET A BODY PART</Link>
-            </div>
             </div>
             <Button className='menu-control-container' onClick={() => setActiveMenu(!activeMenu)}>
                 <MenuOutlined/>

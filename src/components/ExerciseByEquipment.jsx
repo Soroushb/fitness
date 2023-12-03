@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
-import {  Col, Row, Card } from 'antd';
+import {  Col, Row, Card, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { useGetExerciseEquipmentsQuery, useGetExercisesByEquipmentsQuery } from '../services/fitnessApi';
 
 
 const ExerciseByEquipment = () => {
 
-
+  const {Title} = Typography
   const [equipment, setEquipment] = useState('assisted')
   const {data: equipments} = useGetExerciseEquipmentsQuery();
   const {data : targetData} = useGetExercisesByEquipmentsQuery(equipment)
@@ -17,6 +17,9 @@ const ExerciseByEquipment = () => {
   return (
     <div className='target-container'>
       
+      <Title style={{color: 'white'}}>
+            By Equipment
+       </Title>
       <div className='muscle-container'>
         {equipments?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>

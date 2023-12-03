@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-const DropDown = () => {
+const DropDown = ({options, selectedOption, setMuscle}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -11,12 +10,12 @@ const DropDown = () => {
   return (
     <div className={`dropdown ${isOpen ? 'open' : ''}`}>
       <div className="dropdown-toggle" onClick={toggleDropdown}>
-        Select an Option
+        Select an Option <span className="arrow">&#9662;</span>
       </div>
       {isOpen && (
         <ul className="dropdown-menu">
           {options.map((option, index) => (
-            <li key={index}>{option}</li>
+            <li onClick={() => setMuscle(option)} style={{color: "black"}} key={index}>{option}</li>
           ))}
         </ul>
       )}

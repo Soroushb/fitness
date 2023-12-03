@@ -6,6 +6,7 @@ import { useGetExerciseBodyPartsQuery, useGetExerciseByBodyPartQuery } from '../
 const ExercisesByBodyPart = () => {
 
 
+  const {Title} = Typography
   const [bodyPart, setBodyPart] = useState("back")
   const {data: targetData} = useGetExerciseByBodyPartQuery(bodyPart)
   const {data} = useGetExerciseBodyPartsQuery();
@@ -16,6 +17,9 @@ const ExercisesByBodyPart = () => {
   return (
     <div className='target-container'>
 
+      <Title style={{color: 'white'}}>
+            By Body Part
+       </Title>
       <div className='muscle-container'>
         {data?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>
