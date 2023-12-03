@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import { Input, Col, Row, Card, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { useGetExerciseBodyPartsQuery, useGetExerciseByBodyPartQuery } from '../services/fitnessApi';
+import DropDown from './DropDown'
+
 
 const ExercisesByBodyPart = () => {
 
@@ -20,6 +22,10 @@ const ExercisesByBodyPart = () => {
       <Title style={{color: 'white'}}>
             By Body Part
        </Title>
+
+       <DropDown className="dropdown" options={data} selectedOption={bodyPart} setMuscle={setBodyPart}/>
+
+
       <div className='muscle-container'>
         {data?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>

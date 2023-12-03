@@ -5,7 +5,6 @@ import { GiMuscleUp, GiLeg } from "react-icons/gi";
 import ExerciseByMuscle from './ExerciseByMuscle';
 import ExercisesByBodyPart from './ExercisesByBodyPart';
 import ExerciseByEquipment from './ExerciseByEquipment';
-import DropDown from './DropDown'
 
 const ExerciseByTarget = () => {
 

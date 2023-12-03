@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {  Col, Row, Card, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { useGetExerciseEquipmentsQuery, useGetExercisesByEquipmentsQuery } from '../services/fitnessApi';
-
+import DropDown from './DropDown';
 
 const ExerciseByEquipment = () => {
 
@@ -20,6 +20,8 @@ const ExerciseByEquipment = () => {
       <Title style={{color: 'white'}}>
             By Equipment
        </Title>
+       <DropDown className="dropdown" options={equipments} selectedOption={equipment} setMuscle={setEquipment}/>
+
       <div className='muscle-container'>
         {equipments?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>

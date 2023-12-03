@@ -24,7 +24,7 @@ const ExerciseByMuscle = () => {
        <Title style={{color: 'white'}}>
             By Muscle
        </Title>
-       <DropDown options={data} selectedOption={muscle} setMuscle={setMuscle}/>
+       <DropDown className="dropdown" options={data} selectedOption={muscle} setMuscle={setMuscle}/>
 
       <div className='muscle-container'>
         {data?.map((selectedMuscle, index) => (
@@ -34,7 +34,7 @@ const ExerciseByMuscle = () => {
         ))}
       </div>
 
-      <Row className="card-container" gutter={[32,32]}>
+    <Row className="card-container" gutter={[32,32]}>
     {console.log(data)}
       {targetData?.map((exercise) => (
          <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">  

@@ -4,6 +4,7 @@ import { useGetExercisesQuery, useGetExerciseByNameQuery } from '../services/fit
 import Loader from './Loader';
 import SearchExercise from './SearchExercise';
 import DropDown from './DropDown';
+import Diet from './Diet';
 
 const Fitness = () => {
 
@@ -22,8 +23,9 @@ const { Meta } = Card;
     <a href="/searchExercise" className="hero-button">Get Started</a>
   </div>
 </div>
-<DropDown/>
-<SearchExercise/>
+
+<Diet max={9} min={1}/>
+
 </>
   )
 }

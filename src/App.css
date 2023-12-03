@@ -350,15 +350,7 @@ a:hover{
     }
 }
 
-@media screen and (max-width: 500px){
-    .coin-links{
-        padding: 0px;
-    }
-    .coin-detail-container{
-        margin: 0;
-    }
 
-}
 @media screen and (max-width: 500px){
     .heading{
         margin-top: 20px;
@@ -387,9 +379,56 @@ a:hover{
         width: 150%;
     }
 
-    
-    
+    .muscle-container{
+        display: none;
+    }
+
+    .muscle{
+        display: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-toggle {
+        padding: 10px;
+        background-color: #3498db;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-radius: 4px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      
+      .dropdown-menu li {
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .dropdown-menu li:hover {
+        background-color: #f2f2f2;
+      }
+      
+      .dropdown.open .dropdown-menu {
+        display: block;
+      }
 }
+
+
 
 .select-news{
     width: 180px;
@@ -607,39 +646,6 @@ width: 70%;
     align-items: center;
 }
 
-.muscle-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 80%;
-    margin: 20px;
-}
-.muscle {
-    flex: 1;
-    box-sizing: border-box;
-    margin: 5px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: center;
-}
-  
-  .muscle button {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--pink);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .muscle button.selected {
-    background-color: #e74c3c; /* Change this to your desired color for the selected button */
-  }
 
   .info{
     background-color: #2980b9;
@@ -742,14 +748,51 @@ width: 70%;
   }
 
   
-  @media screen and (min-width: 800px){
-
-    .link-container{
+  @media screen and (min-width: 800px) {
+    .link-container {
         display: block;
+        display: flex; 
+    }
+
+    .muscle-container {
         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 60%;
+        margin: 20px;
     }
     
-  }
+    .muscle {
+        flex: 1;
+        box-sizing: border-box;
+        margin: 5px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+      
+    .muscle button {
+        width: 100%;
+        padding: 15px;
+        background-color: var(--pink);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .muscle button.selected {
+        background-color: #e74c3c;
+    }
+
+    .dropdown {
+        display: none;
+    }
+}
 
   .card-container{
     padding-right: 150px;
@@ -781,45 +824,7 @@ width: 70%;
   }
 
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
   
-  .dropdown-toggle {
-    padding: 10px;
-    background-color: #3498db;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-radius: 4px;
-    max-height: 200px;
-    overflow-y: auto;
-  }
-  
-  .dropdown-menu li {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .dropdown-menu li:hover {
-    background-color: #f2f2f2;
-  }
-  
-  .dropdown.open .dropdown-menu {
-    display: block;
-  }
 
   .dot{
 
@@ -841,4 +846,27 @@ width: 70%;
     justify-content: center;
     flex-direction: column;
     
+}
+
+.icon-wrapper{
+    width: 50%;
+}
+
+.slider-container{
+
+    display: flex;
+    justify-content: center;
+}
+
+.intensity-button{
+    
+    margin-top: 6px;
+    scale: 200%;
+}
+
+.intensity-button:hover{
+    scale: 250%;
+    cursor: pointer;
+    font-weight: 700;
+    color: #3498db;
 }
