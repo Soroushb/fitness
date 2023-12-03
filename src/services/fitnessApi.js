@@ -32,8 +32,18 @@ export const FitnessApi = createApi({
         getExerciseBodyParts: builder.query({
             query: () => createRequest(`/exercises/bodyPartList`)
         }),
+        getExerciseByBodyPart: builder.query({
+            query: (bodyPart) => createRequest(`/exercises/bodyPart/${bodyPart}`)
+        }),
+        getExerciseEquipments: builder.query({
+            query: (equipment) => createRequest(`/exercises/equipmentList`)
+        }),
+        getExercisesByEquipments: builder.query({
+            query: (equipment) => createRequest(`/exercises/equipment/${equipment}`)
+        }),
+        
     })
 
 })
 
-export const {useGetExercisesQuery, useGetExerciseByNameQuery, useGetExerciseDetailsQuery, useGetExerciseTargetsQuery, useGetExerciseByTargetQuery, useGetExerciseBodyPartsQuery} = FitnessApi
+export const {useGetExercisesQuery, useGetExerciseByNameQuery, useGetExerciseDetailsQuery, useGetExerciseTargetsQuery, useGetExerciseByTargetQuery, useGetExerciseBodyPartsQuery, useGetExerciseByBodyPartQuery, useGetExerciseEquipmentsQuery, useGetExercisesByEquipmentsQuery} = FitnessApi

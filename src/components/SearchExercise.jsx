@@ -25,7 +25,7 @@ const SearchExercise = () => {
     <Search className='searchInput' placeholder="Search for an exercise" onSearch={onSearch} enterButton />
     </Col>
 
-    <Row gutter={[32,32]}>
+    <Row className="card-container" gutter={[32,32]}>
     {console.log(data)}
       {data?.map((exercise) => (
          <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">  

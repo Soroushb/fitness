@@ -1,7 +1,9 @@
 import React from 'react'
-import {  Card, Row, Col, Typography } from 'antd';
+import {  Card, Row, Col, Typography, Dropdown } from 'antd';
 import { useGetExercisesQuery, useGetExerciseByNameQuery } from '../services/fitnessApi'
 import Loader from './Loader';
+import SearchExercise from './SearchExercise';
+import DropDown from './DropDown';
 
 const Fitness = () => {
 
@@ -12,6 +14,7 @@ const { Meta } = Card;
   if(!data) return <Loader/>
 
   return (
+    <>
     <div className="hero-section">
   <div className="hero-content">
     <h1 className="hero-title">Your Fitness Journey Starts Here</h1>
@@ -19,6 +22,9 @@ const { Meta } = Card;
     <a href="/searchExercise" className="hero-button">Get Started</a>
   </div>
 </div>
+<DropDown/>
+<SearchExercise/>
+</>
   )
 }
 

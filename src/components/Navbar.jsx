@@ -8,6 +8,7 @@ const Navbar = () => {
 
     const [activeMenu, setActiveMenu] = useState(true);
     const [screenSize, setScreenSize] = useState(null);
+    const [activeLink, setActiveLink] = useState("HOME")
 
     useEffect(()=> {
         const handleResize = () => setScreenSize(window.innerWidth);
@@ -20,7 +21,7 @@ const Navbar = () => {
         if(screenSize < 768){
             setActiveMenu(false)
         }else{
-            setActiveMenu(true)
+            setActiveMenu(false)
         }
     }, screenSize)
 
@@ -30,9 +31,26 @@ const Navbar = () => {
         <div className='logo-container'>
             <Avatar src={icon} size={86}/>
             <Typography.Title level={2} className="logo">
-            <Link to="/">FitFind</Link>
+            <Link to="/">FitFusion</Link>
             </Typography.Title>
-
+            <div className='link-container'>
+            <div onClick={() => setActiveLink("HOME")} className='single-link-container'>
+            <div className={`dot ${activeLink === "HOME" ? "active-dot" : ""}`}/>
+            <Link className='link' to="/">HOME</Link>
+            </div>
+            <div onClick={() => setActiveLink("FIND")} className='single-link-container'>
+            <div className={`dot ${activeLink === "FIND" ? "active-dot" : ""}`}/>
+            <Link className='link' to="/searchExercise">FIND EXERCISES</Link>
+            </div>
+            <div onClick={() => setActiveLink("MUSCLE")} className='single-link-container'>
+            <div className={`dot ${activeLink === "MUSCLE" ? "active-dot" : ""}`}/>
+            <Link className='link' to="/exerciseByTarget">TARGET A MUSCLE</Link>
+            </div>
+            <div onClick={() => setActiveLink("BODY")} className='single-link-container'>
+            <div className={`dot ${activeLink === "BODY" ? "active-dot" : ""}`}/>
+            <Link className='link' to="/exerciseByBodyPart">TARGET A BODY PART</Link>
+            </div>
+            </div>
             <Button className='menu-control-container' onClick={() => setActiveMenu(!activeMenu)}>
                 <MenuOutlined/>
             </Button>
@@ -55,6 +73,7 @@ const Navbar = () => {
             </Menu.Item>
         </Menu>
         )}
+
     </div>
   )
 }

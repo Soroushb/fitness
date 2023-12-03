@@ -1,29 +1,29 @@
 import React, {useState} from 'react'
-import { Input, Col, Row, Card, Typography } from 'antd';
+import {  Col, Row, Card } from 'antd';
 import { Link } from 'react-router-dom';
-import { useGetExerciseBodyPartsQuery, useGetExerciseByBodyPartQuery } from '../services/fitnessApi';
-
-const ExercisesByBodyPart = () => {
+import { useGetExerciseEquipmentsQuery, useGetExercisesByEquipmentsQuery } from '../services/fitnessApi';
 
 
-  const [bodyPart, setBodyPart] = useState("back")
-  const {data: targetData} = useGetExerciseByBodyPartQuery(bodyPart)
-  const {data} = useGetExerciseBodyPartsQuery();
-  console.log(data)
+const ExerciseByEquipment = () => {
+
+
+  const [equipment, setEquipment] = useState('assisted')
+  const {data: equipments} = useGetExerciseEquipmentsQuery();
+  const {data : targetData} = useGetExercisesByEquipmentsQuery(equipment)
+  console.log(targetData)
 
   
 
   return (
     <div className='target-container'>
-
+      
       <div className='muscle-container'>
-        {data?.map((selectedMuscle, index) => (
+        {equipments?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>
-            <button style={{}} onClick={() => {setBodyPart(selectedMuscle)}} className={selectedMuscle === bodyPart ? 'selected' : ''}>{selectedMuscle.toUpperCase()}</button>
+            <button style={{}} onClick={() => {setEquipment(selectedMuscle)}} className={selectedMuscle === equipment ? 'selected' : ''}>{selectedMuscle.toUpperCase()}</button>
           </div>
         ))}
       </div>
-
 
       <Row className="card-container" gutter={[32,32]}>
       {targetData?.map((exercise) => (
@@ -43,12 +43,9 @@ const ExercisesByBodyPart = () => {
       ))}
     </Row>
 
-      
-
-
 
     </div>
   );
 }
 
-export default ExercisesByBodyPart
+export default ExerciseByEquipment
