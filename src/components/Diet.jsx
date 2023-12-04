@@ -5,11 +5,11 @@ import { useGetActivitiesQuery } from '../services/dietApi';
 
 const Diet = (props) => {
     const { max, min } = props;
-    const [value, setValue] = useState(0);
+    const [level, setLevel] = useState(0);
     const mid = Number(((max - min) / 2).toFixed(5));
-    const preColorCls = value >= mid ? '' : 'icon-wrapper-active';
-    const nextColorCls = value >= mid ? 'icon-wrapper-active' : '';
-    const {data} = useGetActivitiesQuery()
+    const preColorCls = level >= mid ? '' : 'icon-wrapper-active';
+    const nextColorCls = level >= mid ? 'icon-wrapper-active' : '';
+    const {data} = useGetActivitiesQuery(level)
 
     console.log(data)
 
@@ -17,17 +17,21 @@ const Diet = (props) => {
 
       <>
        <div className='slider-container'>
-        <div className='intensity-button'>-</div>
+        <div onClick={() => level > 1 ? setLevel(level - 1) : null} className='intensity-button'>-</div>
         <div className="icon-wrapper">
-        <Slider {...props} onChange={setValue} value={value} />
+        <Slider {...props} onChange={setLevel} value={level} />
       </div>
-      <div className='intensity-button'>+</div>
+      <div onClick={() => level < 9 ? setLevel(level + 1) : null} className='intensity-button'>+</div>
        </div> 
 
       
+        <div className='activities-container'>
        {data?.data.slice(0, 20).map((activity) => (
-        <p>{activity.description}</p>
+        <div className='activity-container'>
+              <p>{activity.description}</p>
+        </div>
        ))}
+       </div>
        
 
        </>
