@@ -18,7 +18,7 @@ export const DietApi = createApi({
             query: (level) => createRequest(`/activities?intensitylevel=${level}`),       
         }),
         getBurnedCalories: builder.query({
-            query: () => createRequest(`/burnedcalorie?activityid=bi_1&activitymin=25&weight=75`)
+            query: (id) => createRequest(`/burnedcalorie?activityid=${id}&activitymin=25&weight=75`)
         })
         
         
@@ -26,4 +26,4 @@ export const DietApi = createApi({
 
 })
 
-export const {useGetActivitiesQuery} = DietApi
+export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery} = DietApi

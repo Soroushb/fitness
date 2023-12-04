@@ -887,5 +887,11 @@ width: 70%;
     width: 40%;
     box-sizing: border-box; /* Include padding and border in the width calculation */
     cursor: pointer;
-  }
+}
 
+
+.activity-container:hover{
+
+    background-color: #001529;
+
+}
