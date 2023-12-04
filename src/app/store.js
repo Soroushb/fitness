@@ -6,6 +6,7 @@ import { popularMoviesApi } from "../services/popularMoviesApi";
 import { movieSearchApi } from "../services/movieSearchApi";
 import { movieNewsApi } from "../services/movieNewsApi";
 import { FitnessApi } from "../services/fitnessApi";
+import { DietApi } from "../services/dietApi"
 
 
 export default configureStore({
@@ -16,9 +17,10 @@ export default configureStore({
         [popularMoviesApi.reducerPath]: popularMoviesApi.reducer,
         [movieSearchApi.reducerPath]: movieSearchApi.reducer,
         [movieNewsApi.reducerPath]: movieNewsApi.reducer,
-        [FitnessApi.reducerPath]: FitnessApi.reducer
+        [FitnessApi.reducerPath]: FitnessApi.reducer,
+        [DietApi.reducerPath]: DietApi.reducer
 
     },
     middleware: (getDefaultMiddleware) => 
-    getDefaultMiddleware().concat(moviesApi.middleware, ActorsApi.middleware, NetflixApi.middleware, popularMoviesApi.middleware, movieSearchApi.middleware, movieNewsApi.middleware, FitnessApi.middleware)
+    getDefaultMiddleware().concat(moviesApi.middleware, ActorsApi.middleware, NetflixApi.middleware, popularMoviesApi.middleware, movieSearchApi.middleware, movieNewsApi.middleware, FitnessApi.middleware, DietApi.middleware)
 }) 

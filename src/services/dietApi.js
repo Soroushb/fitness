@@ -9,13 +9,13 @@ const baseUrl = 'https://fitness-calculator.p.rapidapi.com'
 
 const createRequest = (url) => ({url, headers: DietApiHeaders})
 
-export const FitnessApi = createApi({
+export const DietApi = createApi({
 
     reducerPath: 'DietApi',
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: (builder) => ({
-        getExercises: builder.query({
-            query: () => createRequest('/exercises'),       
+        getActivities: builder.query({
+            query: () => createRequest(`/activities?intensitylevel=6`),       
         }),
         
         
@@ -23,4 +23,4 @@ export const FitnessApi = createApi({
 
 })
 
-export const {useGetExercisesQuery, useGetExerciseByNameQuery, useGetExerciseDetailsQuery, useGetExerciseTargetsQuery, useGetExerciseByTargetQuery, useGetExerciseBodyPartsQuery, useGetExerciseByBodyPartQuery, useGetExerciseEquipmentsQuery, useGetExercisesByEquipmentsQuery} = FitnessApi
+export const {useGetActivitiesQuery} = DietApi
