@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Slider, InputNumber } from 'antd';
+import { Slider, InputNumber, Typography } from 'antd';
 import { useGetActivitiesQuery, useGetBurnedCaloriesQuery } from '../services/dietApi';
 import { Button, Modal } from 'antd';
 import ResultModal from './ResultModal';
@@ -7,26 +7,29 @@ import ResultModal from './ResultModal';
 
 const Diet = (props) => {
     const { max, min } = props;
-    const [level, setLevel] = useState(0);
+    const { Title } = Typography;
+    const [level, setLevel] = useState(5);
     const mid = Number(((max - min) / 2).toFixed(5));
     const preColorCls = level >= mid ? '' : 'icon-wrapper-active';
     const nextColorCls = level >= mid ? 'icon-wrapper-active' : '';
+   
+
     const {data} = useGetActivitiesQuery(level);
     const [activity, setActivity] = useState("")
     const {data: calorie} = useGetBurnedCaloriesQuery(activity)
-    console.log(calorie?.burnedCalorie)
  
 
-
+    
 
     return (
 
       <>
+        <div className='result-container'>
+        <Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Calories Burned (After 30 Minutes): <Title level={2} style={{fontWeight: "500", color: "white"}}>{calorie?.data?.burnedCalorie}</Title></Title>
+        </div>
        <div className='slider-container'>
         <div onClick={() => level > 1 ? setLevel(level - 1) : null} className='intensity-button'>-</div>
         <div className="icon-wrapper">
-        <div>Result:{calorie?.data?.burnedCalorie}</div>
-
         <Slider {...props} onChange={setLevel} value={level} />
       </div>
 
@@ -42,8 +45,6 @@ const Diet = (props) => {
        ))}
        </div>
 
-
-  
        </>
       
     );
