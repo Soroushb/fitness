@@ -1,17 +1,13 @@
 import React, {useState} from 'react'
-import Loader from './Loader'
 import { useParams } from 'react-router-dom'
 import { Card, Col, Row, Typography} from 'antd'
-import { Link } from 'react-router-dom'
 import { useGetExerciseDetailsQuery } from '../services/fitnessApi'
 
 const ExerciseDetail = () => {
 
 
-    const {Meta} = Card
     const {Title} = Typography
     const {id} = useParams();
-    const [showMore, setShowMore] = useState(false)
     const {data, isFetching} = useGetExerciseDetailsQuery(id)
     console.log(id)
     console.log(data)

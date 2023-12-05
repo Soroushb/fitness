@@ -8,6 +8,7 @@ import SearchExercise from './components/SearchExercise'
 import ExerciseDetail from './components/ExerciseDetail'
 import ExerciseByTarget from './components/ExerciseByTarget'
 import ExercisesByBodyPart from './components/ExercisesByBodyPart'
+import ActivityDetail from './components/ActivityDetail'
 
 const App = () => {
 
@@ -40,6 +41,8 @@ const App = () => {
                         <Route exact path='/searchExercise' element={ <SearchExercise/>}>
                         </Route>
                         <Route exact path='/exerciseDetails/:id' element={ <ExerciseDetail/>}>
+                        </Route>
+                        <Route exact path='/activityDetails/:id' element={ <ActivityDetail/>}>
                         </Route>
                         <Route exact path='/exerciseByTarget' element={<ExerciseByTarget/>}>
                         </Route>
