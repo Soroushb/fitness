@@ -949,3 +949,40 @@ width: 70%;
     color: #fff;
   }
   
+  .food-names-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: white;
+  }
+
+  .food-names-column{
+    margin: 4px;
+  }
+
+
+  .food{
+    background-color: #c0392b;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .food-info-container{
+    display: flex;
+    justify-content: space-between;
+    width: 85;
+    padding: 80px;
+  }
+
+  .food-information{
+    width: 40%;
+    justify-self: end;
+    background-color: #005194;
+  }
+
+  .food-info-detail-container{
+    display: flex;
+    color: white;
+  }
+

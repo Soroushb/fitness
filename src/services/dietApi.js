@@ -22,11 +22,19 @@ export const DietApi = createApi({
         }),
         getFoodTables: builder.query({
             query: () => createRequest(`/foodids/tablenames`)
-        })
-        
+        }),
+        getFoodSubTables: builder.query({
+            query: (tablename) => createRequest(`/foodids/subtablenames?tablename=${tablename}`)
+        }),
+        getFoodIds: builder.query({
+            query: (subtablename) => createRequest(`/foodids?subtablename=${subtablename}`)
+        }),
+        getFoodInfo: builder.query({
+            query: (foodid) => createRequest(`/food?foodid=${foodid}`)
+        }),
         
     })
 
 })
 
-export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery} = DietApi
+export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery, useGetFoodSubTablesQuery, useGetFoodIdsQuery, useGetFoodInfoQuery} = DietApi

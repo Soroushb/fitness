@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { Slider, InputNumber, Typography } from 'antd';
+import React, { useState } from 'react'
+import { Slider, Typography } from 'antd';
 import { useGetActivitiesQuery, useGetBurnedCaloriesQuery } from '../services/dietApi';
-import { Button, Modal } from 'antd';
-import ResultModal from './ResultModal';
+
 
 
 const Diet = (props) => {
-    const { max, min } = props;
     const { Title } = Typography;
     const [level, setLevel] = useState(5);
-    const mid = Number(((max - min) / 2).toFixed(5));
-    const preColorCls = level >= mid ? '' : 'icon-wrapper-active';
-    const nextColorCls = level >= mid ? 'icon-wrapper-active' : '';
    
 
     const {data} = useGetActivitiesQuery(level);
-    const [activity, setActivity] = useState("")
-    const {data: calorie} = useGetBurnedCaloriesQuery(activity)
+    const [activity, setActivity] = useState("");
+    const {data: calorie} = useGetBurnedCaloriesQuery(activity);
  
 
-    
-
+  
     return (
 
       <>
