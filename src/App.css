@@ -670,6 +670,16 @@ width: 70%;
     .muscle {
       width: calc(50% - 10px); /* Two items per row on smaller screens */
     }
+
+    .food-columns{
+        width: 100%;
+    }
+
+    .food-names-container {
+        
+        width: 100% !important;
+          }
+
   }
   
 
@@ -927,6 +937,7 @@ width: 70%;
     border: 1px solid #ddd;
     padding: 10px;
     margin: 5px 0;
+    cursor: pointer;
   }
   
   .pagination {
@@ -952,7 +963,7 @@ width: 70%;
   .food-names-container{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 40% ;
     color: white;
   }
 
@@ -966,23 +977,30 @@ width: 70%;
     margin: 3px;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
   }
+
+
 
   .food-info-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 85;
-    padding: 80px;
+    padding: 60px;
   }
 
   .food-information{
-    width: 40%;
-    justify-self: end;
-    background-color: #005194;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
   }
 
   .food-info-detail-container{
     display: flex;
-    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 

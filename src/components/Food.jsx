@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Button, Modal } from 'antd';
+
 import {
   useGetFoodTablesQuery,
   useGetFoodSubTablesQuery,
@@ -15,6 +17,18 @@ const Food = () => {
   const { data: foodInfo } = useGetFoodInfoQuery(food);
   console.log(foodInfo ? foodInfo : "no data");
   console.log(foodInfo?.foodNutrients?.Carbonhydrate?.value)
+
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const itemsPerPage = 14;
   const [currentPage, setCurrentPage] = useState(1);
@@ -91,12 +105,12 @@ const Food = () => {
     </div>
     <div className='food-info-container'>
     <div className="food-names-container">
-        <ul className="food-names-column">
+        <div className="food-names-column">
           {currentFoodIdItems.map((food, index) => (
-            <li className='food' onClick={() => setFood(food?.id)} key={index}>{food?.foodType}</li>
+            <div className='food' onClick={() => {setFood(food?.id); showModal()}} key={index}>{food?.foodType}</div>
           ))}
-        </ul>
-        <div className="food-id-pagination">
+        </div>
+        <div className="pagination">
           {Array.from({ length: totalFoodIdPages }, (_, index) => (
             <button
               key={index}
@@ -108,28 +122,47 @@ const Food = () => {
           ))}
         </div>
         </div>
+        
+        <Modal title="Nutrients" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        
+        
         <div className='food-information'>
             <div className='food-info-detail-container'>
-                <p className='info-title'>Carbonhydrate: </p>
-                <p className='info-value'>{foodInfo?.data?.foodNutrients?.Carbonhydrate?.value}
-                {foodInfo?.data?.foodNutrients?.Carbonhydrate?.unitname}</p>
+            <p className='info-title'>Carbonhydrate: </p>
+              <b>
+                <p className='info-value'>{foodInfo?.data?.foodNutrients?.Carbonhydrate?.value}  {foodInfo?.data?.foodNutrients?.Carbonhydrate?.unitname}</p>
+              </b>
             </div>
             <div className='food-info-detail-container'>
                 <p className='info-title'>Energy: </p>
-                <p className='info-value'>{foodInfo?.data?.foodNutrients?.Energy?.value}
-                {foodInfo?.data?.foodNutrients?.Energy?.unitname}</p>
+                <b>
+                <p className='info-value'>{foodInfo?.data?.foodNutrients?.Energy?.value}  {foodInfo?.data?.foodNutrients?.Energy?.unitname}</p>
+                </b>
             </div>
             <div className='food-info-detail-container'>
-                <p className='info-title'>Fat: </p>
-                <p className='info-value'>{foodInfo?.data?.foodNutrients?.Fat?.value}
-                {foodInfo?.data?.foodNutrients?.Fat?.unitname}</p>
+                <p className='info-title'>Fat:</p>
+                <div>
+                  <b>
+                  <p className='info-value'>{foodInfo?.data?.foodNutrients?.Fat?.["Fatty acids, total saturated"]?.value}  {foodInfo?.data?.foodNutrients?.Fat?.["Fatty acids, total saturated"]?.unitname}</p>
+                  </b>
+                </div>   
             </div>
             <div className='food-info-detail-container'>
                 <p className='info-title'>Protein: </p>
-                <p className='info-value'>{foodInfo?.data?.foodNutrients?.Protein?.value} 
-                {foodInfo?.data?.foodNutrients?.Protein?.unitname}</p>
+                <b>
+                <p className='info-value'>
+                {foodInfo?.data?.foodNutrients?.Protein?.value}  {foodInfo?.data?.foodNutrients?.Protein?.unitname}</p>
+                </b>
+            </div>
+            <div className='food-info-detail-container'>
+                <p className='info-title'>Water: </p>
+                <b>
+                <p className='info-value'>{foodInfo?.data?.foodNutrients?.Water?.value} {foodInfo?.data?.foodNutrients?.Water?.unitname}</p>
+                </b>
             </div>
         </div>
+        
+      </Modal>
       </div>
     </>
   );
