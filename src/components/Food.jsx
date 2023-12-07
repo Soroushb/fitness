@@ -69,7 +69,15 @@ const Food = () => {
   return (
     <>
 
-<Title level={3} style={{color: "white"}}>Hi</Title>
+    <div className='title'>
+    <Title level={2} style={{color: "white"}}>
+      Food Info
+    </Title>
+    <Title level={3} style={{color: "white"}}>
+      Click on a food table:
+    </Title>
+    </div>
+
 
     <div className="food-container">
       <div className="food-columns">
@@ -134,6 +142,12 @@ const Food = () => {
         
         
         <div className='food-information'>
+          <div className='food-info-detail-container'>
+            <p className='info-title'>Portion: </p>
+              <b>
+                <p className='info-value'>{foodInfo?.data?.portion}  {foodInfo?.data?.portionUnit}</p>
+              </b>
+            </div>
             <div className='food-info-detail-container'>
             <p className='info-title'>Carbonhydrate: </p>
               <b>
