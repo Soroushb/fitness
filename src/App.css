@@ -1004,3 +1004,18 @@ width: 70%;
     align-items: center;
   }
 
+
+  .gender-active{
+
+    background-color: #005194;
+    border-radius: 20px;
+    color: white;
+  }
+
+  .gender-button-container{
+    display: flex;
+  }
+
+  .gender-button{
+    color: white;
+  }

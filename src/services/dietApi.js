@@ -32,9 +32,12 @@ export const DietApi = createApi({
         getFoodInfo: builder.query({
             query: (foodid) => createRequest(`/food?foodid=${foodid}`)
         }),
+        getIdealWeight: builder.query({
+            query: ({gender, height}) => createRequest(`/idealweight?gender=${gender}&height=${height}`)
+        })
         
     })
 
 })
 
-export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery, useGetFoodSubTablesQuery, useGetFoodIdsQuery, useGetFoodInfoQuery} = DietApi
+export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery, useGetFoodSubTablesQuery, useGetFoodIdsQuery, useGetFoodInfoQuery, useGetIdealWeightQuery} = DietApi

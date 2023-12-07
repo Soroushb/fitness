@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
+import {Typography} from 'antd'
+
 
 import {
   useGetFoodTablesQuery,
@@ -9,6 +11,8 @@ import {
 } from '../services/dietApi';
 
 const Food = () => {
+
+  const {Title} = Typography
   const [subTable, setSubTable] = useState('');
   const [food, setFood] = useState('')
   const { data } = useGetFoodTablesQuery();
@@ -64,6 +68,9 @@ const Food = () => {
 
   return (
     <>
+
+<Title level={3} style={{color: "white"}}>Hi</Title>
+
     <div className="food-container">
       <div className="food-columns">
         <ul className="food-column">

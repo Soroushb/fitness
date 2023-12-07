@@ -5,6 +5,7 @@ import Loader from './Loader';
 import SearchExercise from './SearchExercise';
 import DropDown from './DropDown';
 import Diet from './Diet';
+import IdealWeight from './IdealWeight';
 
 const Fitness = () => {
 
@@ -24,7 +25,7 @@ const { Meta } = Card;
   </div>
 </div>
 
-<Diet max={9} min={1}/>
+<IdealWeight/>
 
 </>
   )
