@@ -8,7 +8,6 @@ const Navbar = () => {
 
     const [activeMenu, setActiveMenu] = useState(true);
     const [screenSize, setScreenSize] = useState(null);
-    const [activeLink, setActiveLink] = useState("HOME")
 
     useEffect(()=> {
         const handleResize = () => setScreenSize(window.innerWidth);
@@ -21,7 +20,7 @@ const Navbar = () => {
         if(screenSize < 768){
             setActiveMenu(false)
         }else{
-            setActiveMenu(false)
+            setActiveMenu(true)
         }
     }, screenSize)
 
@@ -33,51 +32,29 @@ const Navbar = () => {
             <Typography.Title level={2} className="logo">
             <Link to="/">FitFusion</Link>
             </Typography.Title>
-            <div className='link-container'>
-            <div onClick={() => setActiveLink("HOME")} className='single-link-container'>
-            <div className={`dot ${activeLink === "HOME" ? "active-dot" : ""}`}/>
-            <Link className='link' to="/">HOME</Link>
-            </div>
-            <div onClick={() => setActiveLink("FIND")} className='single-link-container'>
-            <div className={`dot ${activeLink === "FIND" ? "active-dot" : ""}`}/>
-            <Link className='link' to="/searchExercise">FIND EXERCISES</Link>
-            </div>
-            <div onClick={() => setActiveLink("MUSCLE")} className='single-link-container'>
-            <div className={`dot ${activeLink === "MUSCLE" ? "active-dot" : ""}`}/>
-            <Link className='link' to="/exerciseByTarget">TARGET A MUSCLE</Link>
-            </div>
-            <div onClick={() => setActiveLink("ACTIVITY")} className='single-link-container'>
-            <div className={`dot ${activeLink === "ACTIVITY" ? "active-dot" : ""}`}/>
-            <Link className='link' to="/activity">ACTIVITY</Link>
-            </div>
-            <div onClick={() => setActiveLink("FOOD")} className='single-link-container'>
-            <div className={`dot ${activeLink === "FOOD" ? "active-dot" : ""}`}/>
-            <Link className='link' to="/food">FOOD</Link>
-            </div>
-            </div>
             <Button className='menu-control-container' onClick={() => setActiveMenu(!activeMenu)}>
                 <MenuOutlined/>
             </Button>
         </div>
-
         {activeMenu && (
-            <Menu theme='dark'>
+            <Menu style={{backgroundColor: "#592DD1"}} theme='dark'>
             <Menu.Item icon={<HomeOutlined/>}>
-                <Link to="/">Home</Link>
+                <Link to="/">HOME</Link>
             </Menu.Item>
-            
-            <Menu.Item icon={<ClockCircleOutlined/>}>
-                <Link to="/searchExercise">Find Exercise</Link>
+            <Menu.Item icon={<StarOutlined />}>
+                <Link to="/searchExercises">FIND EXERCISES</Link>
+            </Menu.Item>
+            <Menu.Item icon={<BulbOutlined/>}>
+                <Link to="/exerciseByTarget">TARGET A MUSCLE</Link>
             </Menu.Item>
             <Menu.Item icon={<ClockCircleOutlined/>}>
-                <Link to="/exerciseByTarget">Target a Muscle</Link>
+                <Link to="/activity">ACTIVITY</Link>
             </Menu.Item>
-            <Menu.Item icon={<ClockCircleOutlined/>}>
-                <Link to="/exerciseByBodyPart">Target a Muscle</Link>
+            <Menu.Item icon={<CrownOutlined />}>
+                <Link to="/food">FOOD</Link>
             </Menu.Item>
         </Menu>
         )}
-
     </div>
   )
 }

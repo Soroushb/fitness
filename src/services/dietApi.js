@@ -38,9 +38,12 @@ export const DietApi = createApi({
         getBmi: builder.query({
             query: ({age, weight, height}) => createRequest(`/bmi?age=${age}&weight=${weight}&height=${height}`)
         }),
-        
+        getBodyFat: builder.query({
+            query: ({age, gender, weight, height, neck, waist, hip}) => createRequest(`/bodyfat?age=${age}&gender=${gender}&weight=${weight}&height=${height}&neck=${neck}&waist=${waist}&hip=${hip}`)
+        })
+
     })
 
 })
 
-export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery, useGetFoodSubTablesQuery, useGetFoodIdsQuery, useGetFoodInfoQuery, useGetIdealWeightQuery, useGetBmiQuery} = DietApi
+export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery, useGetFoodSubTablesQuery, useGetFoodIdsQuery, useGetFoodInfoQuery, useGetIdealWeightQuery, useGetBmiQuery, useGetBodyFatQuery} = DietApi

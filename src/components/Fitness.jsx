@@ -7,6 +7,7 @@ import DropDown from './DropDown';
 import Diet from './Diet';
 import IdealWeight from './IdealWeight';
 import Bmi from './Bmi';
+import BodyFat from './BodyFat';
 
 const Fitness = () => {
 
@@ -25,9 +26,7 @@ const { Meta } = Card;
     <a href="/searchExercise" className="hero-button">Get Started</a>
   </div>
 </div>
-
-<IdealWeight/>
-<Bmi/>
+<BodyFat/>
 </>
   )
 }
