@@ -64,18 +64,20 @@ const App = () => {
                         </Route>
                     </Routes>
                 </div>
-        <div className='footer' level={5} style={{color:'white', textAlign:'center'}}>
-            <Typography.Title style={{"color" : "white"}}>
-                Cinephelia<br/>
-                All Rights Reserved.
-            </Typography.Title>
-            <Space>
-                <Link to="/">Home | </Link>
-                <Link to="/popularmovies">Popular | </Link>
-                <Link to="/top100">Top Movies | </Link>
-                <Link to="/news">News</Link>
-            </Space>
-        </div>
+                <div className='footer' style={{ color: 'white', textAlign: 'center', padding: '20px', backgroundColor: '#001529' }}>
+      <Typography.Title level={3} style={{ color: 'white', marginBottom: '10px' }}>
+        FitFusion
+      </Typography.Title>
+      <Space>
+        <Link to="/" style={{ color: 'white' }}>Home</Link> | 
+        <Link to="/searchExercises" style={{ color: 'white' }}>Find Exercise</Link> | 
+        <Link to="/exerciseByTarget" style={{ color: 'white' }}>Exercise By Target</Link>| 
+        <Link to="/activity" style={{ color: 'white' }}>Activity</Link>
+      </Space>
+      <Typography.Text style={{ display: 'block', marginTop: '20px', color: '#bfbfbf' }}>
+        © 2023 FitFusion. All Rights Reserved.
+      </Typography.Text>
+    </div>
     </div>
     </div>
   )

@@ -18,9 +18,10 @@ const Diet = (props) => {
     return (
 
       <>
+
         <div className='result-container'>
         {calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Calories Burned (After 30 Minutes): <Title level={2} style={{fontWeight: "500", color: "white"}}>{calorie?.data?.burnedCalorie}</Title></Title>)}
-        {!calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Click on an activity to see the burned calories amount.</Title>)}
+        {!calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Click on an activity.</Title>)}
         </div>
        <div className='slider-container'>
         <div onClick={() => level > 1 ? setLevel(level - 1) : null} className='intensity-button'>-</div>

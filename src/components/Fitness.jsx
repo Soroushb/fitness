@@ -8,6 +8,7 @@ import Diet from './Diet';
 import IdealWeight from './IdealWeight';
 import Bmi from './Bmi';
 import BodyFat from './BodyFat';
+import ExerciseByTarget from './ExerciseByTarget'
 
 const Fitness = () => {
 
@@ -19,13 +20,8 @@ const { Meta } = Card;
 
   return (
     <>
-    <div className="hero-section">
-  <div className="hero-content">
-    <h1 className="hero-title">Your Fitness Journey Starts Here</h1>
-    <p className="hero-subtitle">Discover a healthier and happier you with our fitness programs.</p>
-    <a href="/searchExercise" className="hero-button">Get Started</a>
-  </div>
-</div>
+<ExerciseByTarget/>
+<SearchExercise/>
 <BodyFat/>
 </>
   )

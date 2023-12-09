@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Input, Col, Row, Card, Typography } from 'antd';
+import { Input, Col, Row, Card, Typography, Pagination } from 'antd';
 import { Link } from 'react-router-dom';
 import { useGetExerciseBodyPartsQuery, useGetExerciseByBodyPartQuery } from '../services/fitnessApi';
 import DropDown from './DropDown'
@@ -9,10 +9,16 @@ const ExercisesByBodyPart = () => {
 
 
   const {Title} = Typography
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; 
   const [bodyPart, setBodyPart] = useState("back")
   const {data: targetData} = useGetExerciseByBodyPartQuery(bodyPart)
   const {data} = useGetExerciseBodyPartsQuery();
-  console.log(data)
+ 
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentExerciseData = data?.slice(indexOfFirstItem, indexOfLastItem);
 
   
 
@@ -27,12 +33,23 @@ const ExercisesByBodyPart = () => {
 
 
       <div className='muscle-container'>
-        {data?.map((selectedMuscle, index) => (
+        {currentExerciseData?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>
-            <button style={{}} onClick={() => {setBodyPart(selectedMuscle)}} className={selectedMuscle === bodyPart ? 'selected' : ''}>{selectedMuscle.toUpperCase()}</button>
+            <button style={{}} onClick={() => {setBodyPart(selectedMuscle)}} className={selectedMuscle === bodyPart ? 'selected' : ''}><Typography style={{ color: "white", fontWeight: "600" }}>{selectedMuscle.toUpperCase()}</Typography></button>
           </div>
         ))}
       </div>
+
+      <Pagination
+        className='page-numbers'
+  
+         current={currentPage}
+        total={data?.length}
+        pageSize={itemsPerPage}
+        onChange={(page) => setCurrentPage(page)}
+        showSizeChanger={false}
+        showQuickJumper={false}
+      />
 
 
       <Row className="card-container" gutter={[32,32]}>
@@ -40,13 +57,14 @@ const ExercisesByBodyPart = () => {
          <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">  
             <Link to={`/exerciseDetails/${exercise.id}`}>
            <Card title={`${exercise.name.toUpperCase()}`}  style={{
-                                          width: 300,
+                                          width: 250,
+                                          borderRadius: "50px",
                                           maxHeight: 400,
                                           minHeight: 400}} 
                                           hoverable>
                                             
               <img height={250} width={200} className='film-image' src={ exercise?.gifUrl} alt="exercise gif"/>
-              <div className='info'>More info...</div>
+              <div className='info'><Typography>More info...</Typography></div>
            </Card>
            </Link>
      </Col>

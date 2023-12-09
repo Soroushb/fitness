@@ -18,20 +18,22 @@ const SearchExercise = () => {
   return (
     <>
     <div className='search-exercises'>
+    <div className='title-search'>
     <Title level={2} className="heading" style={{color: 'white'}}>
       Search for an Exercise:
     </Title>
     <Col span={8} style={{marginBottom: "45px", marginRight: "40px"}}>
     <Search className='searchInput' placeholder="Search for an exercise" onSearch={onSearch} enterButton />
     </Col>
-
+    </div>
     <Row className="card-container" gutter={[32,32]}>
     {console.log(data)}
       {data?.map((exercise) => (
          <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">  
             <Link to={`/exerciseDetails/${exercise.id}`}>
            <Card title={`${exercise.name.toUpperCase()}`}  style={{
-                                          width: 300,
+                                          width: 250,
+                                          borderRadius: "50px",
                                           maxHeight: 400,
                                           minHeight: 400}} 
                                           hoverable>

@@ -60,12 +60,14 @@
         padding: 20px;
         align-items: center;
         width: 100%;
+        
     }
     .logo{
         margin:0 0 0 15px;
+        color: black;
     }
     .logo a{
-    color: white;
+        color: black;
     }
     .menu-control-container{
         display: none !important;
@@ -174,6 +176,10 @@
             cursor: pointer;    
         }
         
+    }
+
+    .muscle-container{  
+        padding: 10px  
     }
 
     .arrow-container{
@@ -299,6 +305,11 @@
         }
     }
 
+
+    .menu{
+
+       
+    }
 
 
     .select-news{
@@ -580,13 +591,21 @@
         .dropdown {
             display: none;
         }
+
+        .card-container{
+            padding-right: 110px;
+            padding-left: 110px;
+    
+        }
     }
 
-    .card-container{
-        padding-right: 110px;
-        padding-left: 110px;
-
+    .title-search{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+
+    
 
     .target-type-container{
         display: flex;
@@ -594,7 +613,7 @@
     }
 
     .target-type {
-        background-color: #c0392b;
+        background-color: #d44e3f;
         padding: 10px;
         margin: 10px;
         border-radius: 50%;
@@ -602,12 +621,12 @@
     }
 
     .target-type:hover{
-        color:#005194;
+        color:white;
         scale: 120%;
     }
 
     .active-filter{
-        color: #005194;
+        color: white;
         scale: 110%;
     }
 
@@ -647,7 +666,7 @@
     }
 
     .intensity-button{
-        
+        cursor: pointer;
         margin-top: 6px;
         scale: 200%;
     }
@@ -688,6 +707,7 @@
     .result-container{
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
 
@@ -722,6 +742,14 @@
         display: flex;
         justify-content: center;
         margin-top: 20px;
+    }
+
+    .page-numbers{
+        background-color: white;
+        color: white;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        font-weight: 600;
     }
     
     .pagination button {

@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <div className='nav-container'>
         <div className='logo-container'>
-            <Avatar src={icon} size={86}/>
+            <Avatar src={"https://t4.ftcdn.net/jpg/04/22/12/95/360_F_422129557_tBylYldzJ5KjVTEdRLMkQIaYizThV1PE.jpg"} size={86}/>
             <Typography.Title level={2} className="logo">
             <Link to="/">FitFusion</Link>
             </Typography.Title>
@@ -37,9 +37,13 @@ const Navbar = () => {
             </Button>
         </div>
         {activeMenu && (
+            <div className='menu'>
             <Menu style={{backgroundColor: "#592DD1"}} theme='dark'>
             <Menu.Item icon={<HomeOutlined/>}>
-                <Link to="/">HOME</Link>
+                <Link  to="/">HOME</Link>
+            </Menu.Item>
+            <Menu.Item icon={<BulbOutlined/>}>
+                <Link to="/exerciseByTarget">FITNESS CALCULATORS</Link>
             </Menu.Item>
             <Menu.Item icon={<StarOutlined />}>
                 <Link to="/searchExercises">FIND EXERCISES</Link>
@@ -54,6 +58,7 @@ const Navbar = () => {
                 <Link to="/food">FOOD</Link>
             </Menu.Item>
         </Menu>
+        </div>
         )}
     </div>
   )
