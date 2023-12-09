@@ -42,8 +42,7 @@ const ExercisesByBodyPart = () => {
 
       <Pagination
         className='page-numbers'
-  
-         current={currentPage}
+        current={currentPage}
         total={data?.length}
         pageSize={itemsPerPage}
         onChange={(page) => setCurrentPage(page)}

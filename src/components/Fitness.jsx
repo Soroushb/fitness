@@ -20,6 +20,14 @@ const { Meta } = Card;
 
   return (
     <>
+
+<div class="hero-section">
+    <div class="hero-content">
+      <div class="hero-title"><Title level={1}style={{color: "white"}}>Unleash Your Potential</Title></div>
+      <div class="hero-subtitle"><Title style={{color: "white"}} level={4}>Embark on a journey to a healthier you</Title></div>
+      <a href="#" class="hero-button">Get Started</a>
+    </div>
+  </div>
 <ExerciseByTarget/>
 <SearchExercise/>
 <BodyFat/>

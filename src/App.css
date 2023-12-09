@@ -64,20 +64,23 @@
     }
     .logo{
         margin:0 0 0 15px;
-        color: black;
     }
     .logo a{
-        color: black;
+        color: white;
     }
     .menu-control-container{
         display: none !important;
         position: absolute !important;
         right: 10px !important;
-        top: 20px !important;
+        top: 40px !important;
         font-size: 1.4rem !important;
+        font-weight: 700;
         border: none !important;
-        color: #000;
+        color: white;
+        
+        background-color: #010314;
         margin-bottom: 10px;
+        height: 35%;
     }
 
 
@@ -111,6 +114,11 @@
             flex-direction: column;
             overflow: hidden;
         }
+    
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
         .navbar{
             flex: 1;
@@ -124,11 +132,12 @@
         }
 
         .nav-container{
-            height: 8vh;
+        height: 13vh;
         position:fixed;
         width: 100%;
         z-index: 100;
-        background-color: var(--bgSecondary);
+        color: white;
+        background-color: #010314;
         }
     
         .menu-control-container{
@@ -144,8 +153,6 @@
             right: 0px;
         }
 
-    
-
         .home-title{
             font-size: 1.4rem !important;
         }
@@ -153,20 +160,7 @@
             font-size: 1.3rem !important;
         }
 
-        .search-movies{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search-actors{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
+    
         .arrow-container{
             display: flex;
             width: 100% !important;
@@ -175,7 +169,15 @@
             justify-content: center;
             cursor: pointer;    
         }
+
+        .page-numbers{
+            display: block;
+        }
         
+    }
+
+    .page-numbers{
+        display: block;
     }
 
     .muscle-container{  
@@ -215,42 +217,12 @@
     }
 
 
-    @media screen and (max-width:1000px){
-        .stats-container{
-            flex-direction: column;
-        }
-        .coin-desc-link{
-            flex-direction: column;
-        }
-        .stats-container h2{
-            margin-top: 0px;
-        }
-    }
-
 
     @media screen and (max-width: 500px){
         .heading{
             margin-top: 20px;
         }
 
-        .movie-card{
-            margin-left: 55px;
-        }
-
-        .news-card{
-            margin-right: 45px;
-            cursor: default;
-        }
-
-        .movies-title{
-            margin-left: 60px;
-            margin-top: 30px;
-        }
-
-        .news-header{
-            margin-top: 25px;
-            margin-left: 70px;
-        }
 
         .searchInput{
             width: 150%;
@@ -264,10 +236,7 @@
             display: none;
         }
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+       
         
         .dropdown-toggle {
             padding: 10px;
@@ -305,67 +274,6 @@
         }
     }
 
-
-    .menu{
-
-       
-    }
-
-
-    .select-news{
-        width: 180px;
-    }
-    .news-card{
-        min-height: 250 !important;
-        display: flex;
-
-    }
-    .news-image-container{
-        display: flex !important;
-        justify-content: space-between !important;
-    }
-    .news-title{
-    width: 70%;
-    }
-
-    .news-image-container .img{
-        width:100px;
-        height:100px;
-    }
-    .news-card p{
-        color: black;
-        margin: 10px 0px !important;
-    }
-    .provider-container{
-        display: flex;
-        justify-content: space-between;
-    }
-    .provider-name{
-        margin-left: 10px;
-    }
-
-    .chart-header{
-        display: flex;
-        justify-content: space-between;
-        gap: 50px;
-        color: #0071bd;
-    }
-    .chart-title{
-        color: #0071bd !important;
-    }
-    .price-container{
-        display: flex !important;
-        gap: 20px !important;
-        align-items: center !important;
-        flex-wrap: wrap !important;
-    }
-    .price-change{
-        font-weight: 900 !important;
-    }
-    .current-price{
-        margin-top: 0px !important;
-        font-weight: 900 !important;
-    }
     .home-heading-container{
         display: flex;
         justify-content: space-between;
@@ -431,22 +339,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 20px;
     }
 
 
-    .info{
-        background-color: #2980b9;
-        border-radius: 30px;
-        padding: 10px;
-        width: 50%;
-        color: white;
-        font-weight: bold;
-    }
 
-    .info:hover{
-        scale: 110%;
-    }
-    
     .muscle button:hover {
         background-color: #005194; /* Darker shade on hover */
         transform: scale(1.05); /* Slight scale effect on hover */
@@ -479,7 +376,7 @@
 
     .hero-section {
         position: relative;
-        background: url('https://t4.ftcdn.net/jpg/02/24/51/53/360_F_224515382_RdooMfTyGSLFU0C3Pfk2rbjVqUy1UrZl.jpg') center/cover no-repeat;
+        background: url('https://i.pinimg.com/originals/38/d7/07/38d70711789e7380cc4616afb6419918.jpg') center/cover no-repeat;
         color: #fff;
         text-align: center;
         padding: 100px;
@@ -551,6 +448,10 @@
         .link-container {
             display: block;
             display: flex; 
+        }
+
+        .page-numbers{
+            display: hidden;
         }
 
         .muscle-container {

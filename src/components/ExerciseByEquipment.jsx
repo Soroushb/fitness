@@ -17,7 +17,6 @@ const ExerciseByEquipment = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentExerciseData = equipments?.slice(indexOfFirstItem, indexOfLastItem);
 
-  
 
   return (
     <div className='target-container'>
@@ -30,7 +29,6 @@ const ExerciseByEquipment = () => {
 
        <Pagination
         className='page-numbers'
-  
         current={currentPage}
         total={equipments?.length}
         pageSize={itemsPerPage}
