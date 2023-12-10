@@ -8,7 +8,7 @@ const ExerciseDetail = () => {
 
     const {Title} = Typography
     const {id} = useParams();
-    const {data, isFetching} = useGetExerciseDetailsQuery(id)
+    const {data} = useGetExerciseDetailsQuery(id)
     console.log(id)
     console.log(data)
 
@@ -16,10 +16,10 @@ const ExerciseDetail = () => {
 
     <>
     <div className='exercise-detail'>
-    <Title style={{color: '#2980b9'}}>
+    <Title style={{color: '#FF4136'}}>
             {data?.name.toUpperCase()}
     </Title>
-    <Typography ><h3 style={{color: '#e74c3c'}}>EQUIPMENT: {data?.equipment.toUpperCase()}</h3></Typography>
+    <Typography ><h3 style={{color: "white"}}>EQUIPMENT: {data?.equipment.toUpperCase()}</h3></Typography>
     </div>
     <Row className='exercise-card-container' style={{marginTop:"40px"}}>
       <Col className='exercise-detail-container'>
@@ -30,20 +30,21 @@ const ExerciseDetail = () => {
       </Col>   
     </Row>
     <div className='instructions'>
+      <Title level={3} style={{color: "#FF4136"}}>Instructions:</Title>
         {data?.instructions.map((instruction, index) => (
             <div className='instruction-list'>
-                <ol>
-                    <li className='instruction-line'><Typography style={{color: '#2ecc71'}}><b style={{color: 'grey'}}>{index + 1}. </b>{instruction.toUpperCase()}</Typography></li>
-                </ol>
+                <ul>
+                    <div className='instruction-line'><Typography style={{color: 'white'}}><b style={{color: 'white'}}>{index + 1}. </b>{instruction}</Typography></div>
+                </ul>
             </div>
         ))}
     </div> 
-    <Typography>What this exercise mainly targets: <h1>{data?.target.toUpperCase()}</h1></Typography>
-    <Typography><h2>Secondary Muscles:</h2></Typography>
+    <Title level={4}  style={{color: "white", marginTop: "15px"}}>What this exercise mainly targets: <h2 style={{color: "#FF4136"}}>{data?.target.toUpperCase()}</h2></Title>
+    <Title level={5} style={{color: "white"}}>Secondary Muscles:</Title>
     <div className='secondary-muscles'>
     {data?.secondaryMuscles.map((muscle) => (
-        <p className='secondary-muscle'>{muscle.toUpperCase()}</p>
-    ))}
+      <>  <Typography style={{color: "white", borderColor: "#FF4136", borderStyle: "solid", padding: "10px", borderWidth: "1px"}}>{muscle.toUpperCase()}  </Typography>  </>
+    ))} 
     </div>
     </>
   )

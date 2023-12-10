@@ -2,7 +2,12 @@ import React, {useState, useEffect} from 'react'
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
 import { HomeOutlined, StarOutlined, BulbOutlined, MenuOutlined, ClockCircleOutlined, CrownOutlined } from '@ant-design/icons'
-import icon from '../images/cinema.jpg'
+import { motion, useAnimation } from 'framer-motion';
+
+const rotate3D = {
+    hidden: { rotateX: 20, rotateY: 0 },
+    visible: { rotateX: 0, rotateY: 360, transition: { duration: 5, ease: 'linear', repeat: Infinity } },
+  };
 
 const Navbar = () => {
 
@@ -28,7 +33,9 @@ const Navbar = () => {
   return (
     <div className='nav-container'>
         <div className='logo-container'>
-            <Avatar src={"https://t4.ftcdn.net/jpg/04/22/12/95/360_F_422129557_tBylYldzJ5KjVTEdRLMkQIaYizThV1PE.jpg"} size={86}/>
+            <motion.div  animate="visible" variants={rotate3D}>
+                <Avatar src={"https://t4.ftcdn.net/jpg/04/22/12/95/360_F_422129557_tBylYldzJ5KjVTEdRLMkQIaYizThV1PE.jpg"} size={86}/>
+            </motion.div>
             <Typography.Title level={2} className="logo">
             <Link to="/">FitFusion</Link>
             </Typography.Title>
@@ -38,7 +45,7 @@ const Navbar = () => {
         </div>
         {activeMenu && (
             <div className='menu'>
-            <Menu style={{backgroundColor: "#592DD1"}} theme='dark'>
+            <Menu style={{backgroundColor: "#0A2472"}} theme='dark'>
             <Menu.Item icon={<HomeOutlined/>}>
                 <Link  to="/">HOME</Link>
             </Menu.Item>

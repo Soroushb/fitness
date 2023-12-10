@@ -43,7 +43,9 @@ const SearchExercise = () => {
            </Link>
      </Col>
       ))}
+      <div className='no-results'>
       {data?.length === 0 && (<Title style={{color: "white", marginBottom: "200px"}}>No Results Found.<br/></Title>)}
+      </div>
     </Row>
     </div>
     </>

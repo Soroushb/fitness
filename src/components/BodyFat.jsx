@@ -1,13 +1,45 @@
 import React, {useState} from 'react'
-import { InputNumber, Typography } from 'antd'
+import { InputNumber, Typography, Switch } from 'antd'
 import { useGetBodyFatQuery } from '../services/dietApi';
 import { Button } from 'antd';
+import { motion, useAnimation } from 'framer-motion';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeInOut' } },
+};
+
+const rotate3D = {
+  hidden: { rotateX: 20, rotateY: 0 },
+  visible: { rotateX: 0, rotateY: 360, transition: { duration: 5, ease: 'linear', repeat: Infinity } },
+};
+
+const styles = {
+  container: {
+    perspective: '800px',
+  },
+  card: {
+    width: '300px',
+    height: 'auto',
+    margin: '0 auto',
+    position: 'relative',
+  },
+  title: {
+    color: 'white',
+    background: 'rgba(0, 0, 0, 0.8)',
+    padding: '16px',
+    margin: '16px 0',
+    borderRadius: '8px',
+  },
+};
+
+
 
 const BodyFat = () => {
 
     const {Title} = Typography;
     const [age, setAge] = useState("");
-    const [gender, setGender] = useState("");
+    const [gender, setGender] = useState("male");
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
     const [neck, setNeck] = useState("");
@@ -66,15 +98,26 @@ const BodyFat = () => {
           <div className='input'></div>
           <div className='input'></div>
         </div>
+        
   
         
         {showResult && data && (
-        <div>
-        <Title level={3} style={{color: "white"}}>Body Fat (BMI Method): {data?.data?.["Body Fat (BMI method)"]}</Title>
-        <Title level={3} style={{color: "white"}}>Body Fat (U.S. Navy Method): {data?.data?.["Body Fat (U.S. Navy Method)"]}</Title>
-        <Title level={3} style={{color: "white"}}>Body Fat Mass: {data?.data?.["Body Fat Mass"]}</Title>
-        <Title level={3} style={{color: "white"}}>Lean Body Mass: {data?.data?.["Lean Body Mass"]}</Title>   
-        </div>
+          <motion.div className='body-fat-results' style={styles.container}>
+          <motion.div className='card' style={styles.card} initial="hidden" animate="visible" variants={fadeIn}>
+            <motion.div variants={fadeIn}>
+              <Title level={3} style={styles.title}>Body Fat (BMI Method): {data?.data?.["Body Fat (BMI method)"]}</Title>
+            </motion.div>
+            <motion.div variants={fadeIn}>
+              <Title level={3} style={styles.title}>Body Fat (U.S. Navy Method): {data?.data?.["Body Fat (U.S. Navy Method)"]}</Title>
+            </motion.div>
+            <motion.div variants={fadeIn}>
+              <Title level={3} style={styles.title}>Body Fat Mass: {data?.data?.["Body Fat Mass"]}</Title>
+            </motion.div>
+            <motion.div variants={fadeIn}>
+              <Title level={3} style={styles.title}>Lean Body Mass: {data?.data?.["Lean Body Mass"]}</Title>
+            </motion.div>
+          </motion.div>
+        </motion.div>
         )}
     </div>
     
