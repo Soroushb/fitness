@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className='nav-container'>
         <div className='logo-container'>
             <motion.div  animate="visible" variants={rotate3D}>
-                <Avatar src={"https://t4.ftcdn.net/jpg/04/22/12/95/360_F_422129557_tBylYldzJ5KjVTEdRLMkQIaYizThV1PE.jpg"} size={86}/>
+                <Avatar src={"https://t4.ftcdn.net/jpg/04/22/12/95/360_F_422129557_tBylYldzJ5KjVTEdRLMkQIaYizThV1PE.jpg"} style={{marginRight: "10px"}} size={76}/>
             </motion.div>
             <Typography.Title level={2} className="logo">
             <Link to="/">FitFusion</Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <Link  to="/">HOME</Link>
             </Menu.Item>
             <Menu.Item icon={<BulbOutlined/>}>
-                <Link to="/exerciseByTarget">FITNESS CALCULATORS</Link>
+                <Link to="/calculators">FITNESS CALCULATORS</Link>
             </Menu.Item>
             <Menu.Item icon={<StarOutlined />}>
                 <Link to="/searchExercises">FIND EXERCISES</Link>

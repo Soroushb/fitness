@@ -1,7 +1,33 @@
 import React, {useState} from 'react'
 import { InputNumber, Typography } from 'antd'
 import { useGetIdealWeightQuery } from '../services/dietApi';
-import { Button, Flex } from 'antd';
+import { Button,  } from 'antd';
+import { motion } from 'framer-motion';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeInOut' } },
+};
+
+const styles = {
+  container: {
+    perspective: '800px',
+  },
+  card: {
+    width: '300px',
+    height: 'auto',
+    margin: '0 auto',
+    position: 'relative',
+  },
+  title: {
+    color: 'white',
+    background: 'rgba(0, 0, 0, 0.8)',
+    padding: '16px',
+    margin: '16px 0',
+    borderRadius: '8px',
+  },
+};
+
 
 const IdealWeight = () => {
 
@@ -18,17 +44,30 @@ const IdealWeight = () => {
     }
 
   return (
-    <div>
-        <Title level={2} style={{color: 'white'}}>Ideal Weight</Title>
-        <Title level={3} style={{color: 'white'}}>Gender: </Title>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+        <Title level={2} style={{color: '#FF4136', marginTop: "30px"}}>Ideal Weight</Title>
+        <div className='input-group'>
+          <div className='input'>
+          <Title level={3} style={{color: 'white'}}>Gender: </Title>
         <div className='gender-button-container'>
             <div onClick={() => {setGender("male"); setShowResult(false)}} className={`gender-button ${gender === 'male' ? "gender-active" : null}`}>Male</div>
             <div  onClick={() => {setGender("female"); setShowResult(false)}} className={`gender-button ${gender === 'female' ? "gender-active" : null}`}>Female</div>
         </div>
-        <Title level={3} style={{color: 'white'}}>Height: </Title>
-        <InputNumber onChange={onChange} />        
-        <Button onClick={() => setShowResult(true)} type="primary">Calculate</Button>
-        {showResult && (<Title level={3} style={{color: "white"}}>{data?.data?.Devine}</Title>)}
+          </div>
+          <div className='input'>
+          <Title level={3} style={{color: 'white'}}>Height: </Title>
+          <InputNumber onChange={onChange} /> 
+          </div>
+        </div>
+        <Button style={{marginTop: "20px"}} onClick={() => setShowResult(true)} type="primary">Calculate</Button>
+        {!data && showResult && (
+          <Title level={3} style={styles.title}>No Results! Please check your inputs.</Title>
+        )}
+        {showResult && data && (
+        <motion.div variants={fadeIn}>
+        <Title level={3} style={styles.title}>{data?.data?.Devine}</Title>
+        </motion.div>
+        )}
     </div>
     
   )

@@ -11,6 +11,7 @@ import ExercisesByBodyPart from './components/ExercisesByBodyPart'
 import ActivityDetail from './components/ActivityDetail'
 import Diet from './components/Diet'
 import Food from './components/Food'
+import Calculators from './components/Calculators'
 
 const App = () => {
 
@@ -49,6 +50,8 @@ const App = () => {
                         <Route exact path='/exerciseByTarget' element={<ExerciseByTarget/>}>
                         </Route>
                         <Route exact path='/activity' element={<Diet max={9} min={1}/>}>
+                        </Route>
+                        <Route exact path='/calculators' element={<Calculators/>}>
                         </Route>
                         <Route exact path='/food' element={<Food/>}>
                         </Route>

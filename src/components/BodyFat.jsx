@@ -2,16 +2,11 @@ import React, {useState} from 'react'
 import { InputNumber, Typography, Switch } from 'antd'
 import { useGetBodyFatQuery } from '../services/dietApi';
 import { Button } from 'antd';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeInOut' } },
-};
-
-const rotate3D = {
-  hidden: { rotateX: 20, rotateY: 0 },
-  visible: { rotateX: 0, rotateY: 360, transition: { duration: 5, ease: 'linear', repeat: Infinity } },
 };
 
 const styles = {
@@ -54,7 +49,7 @@ const BodyFat = () => {
   return (
     <div className='body-fat-container'>
       
-        <Title level={2} style={{color: 'white'}}>Calculate Body Fat:</Title>
+        <Title level={2} style={{color: '#FF4136', marginTop: "30px"}}>Calculate Body Fat:</Title>
 
         <div className='input-group'>
         <div className='input'>
@@ -100,7 +95,9 @@ const BodyFat = () => {
         </div>
         
   
-        
+        {!data && showResult && (
+          <Title level={3} style={styles.title}>No Results! Please check your inputs.</Title>
+        )}
         {showResult && data && (
           <motion.div className='body-fat-results' style={styles.container}>
           <motion.div className='card' style={styles.card} initial="hidden" animate="visible" variants={fadeIn}>
