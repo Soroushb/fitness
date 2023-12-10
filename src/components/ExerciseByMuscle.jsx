@@ -5,9 +5,16 @@ import { useGetExerciseTargetsQuery, useGetExerciseByTargetQuery, useGetExercise
 import { IoMdFitness } from "react-icons/io";
 import { GiMuscleUp, GiLeg } from "react-icons/gi";
 import DropDown from './DropDown';
+import { motion } from 'framer-motion';
+
 
 const ExerciseByMuscle = () => {
   const { Title } = Typography;
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   const [muscle, setMuscle] = useState('abs');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9; 
@@ -20,6 +27,13 @@ const ExerciseByMuscle = () => {
   const currentExerciseData = data?.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
+
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn}
+      className='target-container'
+    >
     <div className='target-container'>
       <Title style={{ color: 'white' }}>
         By Muscle
@@ -65,9 +79,8 @@ const ExerciseByMuscle = () => {
           </Col>
         ))}
       </Row>
-
-      
     </div>
+    </motion.div>
   );
 }
 

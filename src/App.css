@@ -494,8 +494,8 @@
         }
 
         .card-container{
-            padding-right: 110px;
-            padding-left: 110px;
+            padding-right: 50px;
+            padding-left: 50px;
     
         }
     }
@@ -511,12 +511,14 @@
     .target-type-container{
         display: flex;
         padding: 20px;
+
     }
 
     .target-type {
         background-color: #d44e3f;
         padding: 10px;
         margin: 10px;
+        transition: background-color 0.3s, transform 0.2s;
         border-radius: 50%;
         color: #000;
     }
@@ -564,6 +566,19 @@
 
         display: flex;
         justify-content: center;
+    }
+
+    .info{
+        background-color: #2980b9;
+        border-radius: 30px;
+        padding: 10px;
+        width: 50%;
+        color: white;
+        font-weight: bold;
+    }
+
+    .info:hover{
+        scale: 110%;
     }
 
     .intensity-button{
