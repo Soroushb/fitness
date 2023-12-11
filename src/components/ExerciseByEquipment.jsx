@@ -26,7 +26,6 @@ const ExerciseByEquipment = () => {
        </Title>
        <DropDown className="dropdown" options={equipments} selectedOption={equipment} setMuscle={setEquipment}/>
 
-
        <Pagination
         className='page-numbers'
         current={currentPage}

@@ -16,10 +16,12 @@ const ExerciseDetail = () => {
 
     <>
     <div className='exercise-detail'>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", textAlign: "center"}}>
     <Title style={{color: '#FF4136'}}>
             {data?.name.toUpperCase()}
     </Title>
-    <Typography ><h3 style={{color: "white"}}>EQUIPMENT: {data?.equipment.toUpperCase()}</h3></Typography>
+    </div>
+    <Typography ><h3 style={{color: "white", textAlign: "center"}}>EQUIPMENT: {data?.equipment.toUpperCase()}</h3></Typography>
     </div>
     <Row className='exercise-card-container' style={{marginTop:"40px"}}>
       <Col className='exercise-detail-container'>

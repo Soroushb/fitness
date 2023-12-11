@@ -40,10 +40,16 @@ export const DietApi = createApi({
         }),
         getBodyFat: builder.query({
             query: ({age, gender, weight, height, neck, waist, hip}) => createRequest(`/bodyfat?age=${age}&gender=${gender}&weight=${weight}&height=${height}&neck=${neck}&waist=${waist}&hip=${hip}`)
-        })
+        }),
+        getDailyCalorie:  builder.query({
+            query: ({age, gender, weight, height, activity}) => createRequest(`/dailycalorie?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${activity}`)
+        }),
+        getMacros:  builder.query({
+            query: ({age, gender, weight, height, activity, goal}) => createRequest(`/macrocalculator?age=${age}&gender=${gender}&height=${height}&weight=${weight}&activitylevel=${activity}&goal=${goal}`)
+        }),
 
     })
 
 })
 
-export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery, useGetFoodSubTablesQuery, useGetFoodIdsQuery, useGetFoodInfoQuery, useGetIdealWeightQuery, useGetBmiQuery, useGetBodyFatQuery} = DietApi
+export const {useGetActivitiesQuery, useGetBurnedCaloriesQuery, useGetFoodTablesQuery, useGetFoodSubTablesQuery, useGetFoodIdsQuery, useGetFoodInfoQuery, useGetIdealWeightQuery, useGetBmiQuery, useGetBodyFatQuery, useGetDailyCalorieQuery, useGetMacrosQuery} = DietApi

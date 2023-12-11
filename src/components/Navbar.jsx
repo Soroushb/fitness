@@ -53,7 +53,7 @@ const Navbar = () => {
                 <Link to="/calculators">FITNESS CALCULATORS</Link>
             </Menu.Item>
             <Menu.Item icon={<StarOutlined />}>
-                <Link to="/searchExercises">FIND EXERCISES</Link>
+                <Link to="/searchExercise">FIND EXERCISES</Link>
             </Menu.Item>
             <Menu.Item icon={<BulbOutlined/>}>
                 <Link to="/exerciseByTarget">TARGET A MUSCLE</Link>

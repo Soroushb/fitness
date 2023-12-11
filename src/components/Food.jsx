@@ -47,6 +47,15 @@ const Food = () => {
     setCurrentPage(newPage);
   };
 
+  const scrollToContent = (id) => {
+    setTimeout(() => {
+        const contentElement = document.getElementById(id); // replace with the actual ID of your content section
+        if (contentElement) {
+            contentElement.scrollIntoView({ behavior: "smooth" });
+        }
+    }, 200); // 500 milliseconds (half a second) delay
+};
+
   const foodIdPerPage = 10; // Adjust the number of items per page for foodId
   const [currentFoodIdPage, setCurrentFoodIdPage] = useState(1);
 
@@ -86,6 +95,7 @@ const Food = () => {
             <li
               onClick={() => {
                 setSubTable(item);
+                scrollToContent("food")
               }}
               key={index}
             >
@@ -98,6 +108,7 @@ const Food = () => {
             <li
               onClick={() => {
                 setSubTable(item);
+                scrollToContent("food")
               }}
               key={index}
             >
@@ -118,7 +129,7 @@ const Food = () => {
         ))}
       </div>
     </div>
-    <div className='food-info-container'>
+    <div className='food-info-container' id="food">
     <div className="food-names-container">
         <div className="food-names-column">
           {currentFoodIdItems.map((food, index) => (

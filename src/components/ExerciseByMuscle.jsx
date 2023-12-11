@@ -26,6 +26,19 @@ const ExerciseByMuscle = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentExerciseData = data?.slice(indexOfFirstItem, indexOfLastItem);
 
+  const scrollToContent = () => {
+
+    setTimeout(() => {
+
+      const element = document.getElementById('element');
+      if(element){
+        element.scrollIntoView({behavior: "smooth"})
+      }
+
+    }, 200)
+  }
+  
+
   return (
 
     <motion.div
@@ -43,13 +56,12 @@ const ExerciseByMuscle = () => {
       <div className='muscle-container'>
         {currentExerciseData?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>
-            <button style={{}} onClick={() => { setMuscle(selectedMuscle) }} className={selectedMuscle === muscle ? 'selected' : ''}><Typography style={{ color: "white", fontWeight: "600" }}>{selectedMuscle.toUpperCase()}</Typography></button>
+            <button style={{}} onClick={() => { setMuscle(selectedMuscle); scrollToContent() }} className={selectedMuscle === muscle ? 'selected' : ''}><Typography style={{ color: "white", fontWeight: "600" }}>{selectedMuscle.toUpperCase()}</Typography></button>
           </div>
         ))}
       </div>
       <Pagination
         className='page-numbers'
-  
         current={currentPage}
         total={targetData?.length}
         pageSize={itemsPerPage}
@@ -58,7 +70,7 @@ const ExerciseByMuscle = () => {
         showQuickJumper={false}
       />
 
-      <Row className="card-container" gutter={[32, 32]}>
+      <Row id='element' className="card-container" gutter={[32, 32]}>
         {targetData?.map((exercise) => (
           <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">
             <Link to={`/exerciseDetails/${exercise.id}`}>

@@ -100,6 +100,22 @@
             overflow: hidden;
         }
 
+        
+
+        .search-exercises{ 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .title-search{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .slider-container{
             width: 70%;
         }
@@ -161,14 +177,23 @@
         }
 
         .page-numbers{
-            display: block;
+            display: none;
         }
         
     }
 
-    .page-numbers{
-        display: block;
+    
+    .macros{
+
+        color: white;
+        padding: '16px';
+        margin: '16px 0';
+        border-radius: '8px';
+        cursor: 'pointer';
+        text-align: 'center';
+        background-color: #000;
     }
+    
 
     .muscle-container{  
         padding: 10px  
@@ -217,6 +242,8 @@
 
     }
 
+    
+
 
 
     @media screen and (max-width: 500px){
@@ -227,6 +254,7 @@
         .slider-container{
             width: 70%;
         }
+
 
         .searchInput{
             width: 150%;
@@ -285,6 +313,11 @@
         margin-top: 40px;
     }
     
+    .heading{ 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .exercise-detail{
         display: flex;
@@ -425,13 +458,26 @@
         margin-bottom: 30px;
         animation: fadeInUp 1s ease 0.5s; /* Delayed slide up */
     }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
     
     .hero-button {
         display: inline-block;
         padding: 15px 30px;
         font-size: 1.2rem;
-        font-weight: bold;
+        font-weight: 600;
         text-decoration: none;
+        margin: 10px;
         color: #fff;
         background-color: #FF4136;
         border-radius: 5px;
@@ -439,6 +485,7 @@
     }
     
     .hero-button:hover {
+        cursor: pointer;
         background-color: #c0392b;
         transform: scale(1.05); /* Slight scale up on hover */
     }
@@ -543,6 +590,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     
@@ -663,6 +711,8 @@
 
     .calculator-options{
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .calculator-option{
@@ -671,12 +721,17 @@
         cursor: pointer;
         margin: 3px;
         border-radius: 6px;
+        text-align: center;
     }
 
     .active-calc{
         border-style: solid;
         border-width: 2px;
         border-color: #FF4136;
+    }
+
+    .active-footer{
+        color: #FF4136
     }
 
     .intensity-button-neg{
@@ -870,6 +925,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
     }
 
     .input-group{
@@ -878,6 +934,13 @@
 
     .input{
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .activemac{
+        background-color: #FF4136;
     }
 
     .no-results{
@@ -888,7 +951,64 @@
     }
 
     .body-fat-results{
-        background-color: #005194;
         padding: 50px;
         border-radius: 50px;
+       
+    }
+
+
+    .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        font-weight: 700;
+        color: #005194; /* Customize the color */
+        margin-bottom: 20px;
+    }
+    
+    .section-description {
+        text-align: center;
+
+        font-size: 1.1rem;
+        color: #ddd; /* Customize the color */
+        margin-bottom: 40px;
+    }
+    
+    /* Button Styles */
+    .search-button, .filter-button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        margin: 10px;
+        color: #fff;
+        background-color: #005194; /* Green color, you can customize */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .button-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .search-button:hover, .filter-button:hover {
+        background-color: #0A2472; /* Darker green on hover, customize as needed */
+    }
+    
+    /* Add pulsing animation from previous example */
+    .search-button, .filter-button {
+        animation: pulse 3s infinite;
+    }
+    
+
+    .diet-title-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }

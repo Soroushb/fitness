@@ -20,6 +20,18 @@ const ExercisesByBodyPart = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentExerciseData = data?.slice(indexOfFirstItem, indexOfLastItem);
 
+
+  const scrollToContent = () => {
+
+    setTimeout(() => {
+
+      const element = document.getElementById('element');
+      if(element){
+        element.scrollIntoView({behavior: "smooth"})
+      }
+
+    }, 200)
+  }
   
 
   return (
@@ -35,7 +47,7 @@ const ExercisesByBodyPart = () => {
       <div className='muscle-container'>
         {currentExerciseData?.map((selectedMuscle, index) => (
           <div className='muscle' key={index}>
-            <button style={{}} onClick={() => {setBodyPart(selectedMuscle)}} className={selectedMuscle === bodyPart ? 'selected' : ''}><Typography style={{ color: "white", fontWeight: "600" }}>{selectedMuscle.toUpperCase()}</Typography></button>
+            <button style={{}} onClick={() => {setBodyPart(selectedMuscle); scrollToContent()}} className={selectedMuscle === bodyPart ? 'selected' : ''}><Typography style={{ color: "white", fontWeight: "600" }}>{selectedMuscle.toUpperCase()}</Typography></button>
           </div>
         ))}
       </div>
@@ -51,7 +63,7 @@ const ExercisesByBodyPart = () => {
       />
 
 
-      <Row className="card-container" gutter={[32,32]}>
+      <Row id='element' className="card-container" gutter={[32,32]}>
       {targetData?.map((exercise) => (
          <Col xs={24} sm={12} lg={8} key={exercise.id} align="center">  
             <Link to={`/exerciseDetails/${exercise.id}`}>
@@ -63,7 +75,7 @@ const ExercisesByBodyPart = () => {
                                           hoverable>
                                             
               <img height={250} width={200} className='film-image' src={ exercise?.gifUrl} alt="exercise gif"/>
-              <div className='info'><Typography>More info...</Typography></div>
+              <div className='info' style={{color: "white"}}><Typography>More info...</Typography></div>
            </Card>
            </Link>
      </Col>

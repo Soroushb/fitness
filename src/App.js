@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { Layout, Typography, Space } from 'antd'
+import { Typography, Space } from 'antd'
 import {Navbar, Homepage, PopularMovies, News, Movies, TopMovies, MovieDetail, ActorDetail} from './components'
 import './App.css'
 import Fitness from './components/Fitness'
@@ -14,6 +14,8 @@ import Food from './components/Food'
 import Calculators from './components/Calculators'
 
 const App = () => {
+
+    const [active, setActive] = useState("")
 
     useEffect(() => {
         // Dynamically set the background color based on your preference
@@ -72,10 +74,11 @@ const App = () => {
         FitFusion
       </Typography.Title>
       <Space>
-        <Link to="/" style={{ color: 'white' }}>Home</Link> | 
-        <Link to="/searchExercises" style={{ color: 'white' }}>Find Exercise</Link> | 
-        <Link to="/exerciseByTarget" style={{ color: 'white' }}>Exercise By Target</Link>| 
-        <Link to="/activity" style={{ color: 'white' }}>Activity</Link>
+        <Link to="/" onClick={() => setActive("home")} style={{ color: 'white' }}>Home</Link> | 
+        <Link to="/searchExercise" className={`${active === "search" ? "active-footer" : ""}`} onClick={() => setActive("search")} style={{ color: 'white' }}>Find Exercise</Link> | 
+        <Link to="/exerciseByTarget" className={`${active === "target" ? "active-footer" : ""}`} onClick={() => setActive("target")} style={{ color: 'white' }}>Exercise By Target</Link>| 
+        <Link to="/activity" className={`${active === "activity" ? "active-footer" : ""}`} onClick={() => setActive("activity")} style={{ color: 'white' }}>Activity</Link>|
+        <Link to="/calculators" className={`${active === "calculators" ? "active-footer" : ""}`} onClick={() => setActive("calculators")} style={{ color: 'white' }}>Calculators</Link>
       </Space>
       <Typography.Text style={{ display: 'block', marginTop: '20px', color: '#bfbfbf' }}>
         © 2023 FitFusion. All Rights Reserved.

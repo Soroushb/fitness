@@ -15,6 +15,14 @@ const Diet = (props) => {
     const {data: calorie} = useGetBurnedCaloriesQuery(activity);
  
 
+    const scrollToContent = (id) => {
+      setTimeout(() => {
+          const contentElement = document.getElementById(id); // replace with the actual ID of your content section
+          if (contentElement) {
+              contentElement.scrollIntoView({ behavior: "smooth" });
+          }
+      }, 100); // 500 milliseconds (half a second) delay
+  };
   
     return (
 
@@ -23,12 +31,12 @@ const Diet = (props) => {
           <div className='page-title'>
           <Title style={{color: "white"}} level={2}>Activity Calorie Calculator</Title>
           </div>
-          <div className='page-desc'>
-          <Title style={{color: "#A9A9A9"}} level={4}>Find out the calorie burn for different activities. Click on an activity to see how many calories you can lose. Simple, informative, and tailored to your fitness journey.</Title>
+          <div className='page-desc' id="result">
+          <Title style={{color: "#A9A9A9", textAlign: "center"}} level={4}>Find out the calorie burn for different activities. Click on an activity to see how many calories you can lose. Simple, informative, and tailored to your fitness journey.</Title>
           </div>
 
         </div>
-        <div className='result-container'>
+        <div className='result-container' >
         {calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Calories Burned (After 30 Minutes): <Title level={2} style={{fontWeight: "500", color: "white", backgroundColor: "#FF4136", padding: "10px", borderRadius: "25px", marginTop: "20px"}}>{calorie?.data?.burnedCalorie}</Title></Title>)}
         {!calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Click on an activity.</Title>)}
         </div>
@@ -48,7 +56,7 @@ const Diet = (props) => {
       
         <div className='activities-container'>
        {data?.data.slice(0, 20).map((activity) => (
-        <div key={activity.id} onClick={() => {setActivity(activity?.id); setSelectedActivity(activity?.id); setActive(true)}} style={active  && selectedActivity === activity.id ? { backgroundColor: "#005194", color: "white" } : null}  className={`activity-container ${active && selectedActivity === activity.id ? "active-activity" : ""}`}
+        <div key={activity.id} onClick={() => {setActivity(activity?.id); setSelectedActivity(activity?.id); setActive(true); scrollToContent("result")}} style={active  && selectedActivity === activity.id ? { backgroundColor: "#005194", color: "white" } : null}  className={`activity-container ${active && selectedActivity === activity.id ? "active-activity" : ""}`}
         >
               <p>{activity.description}</p>
         </div>

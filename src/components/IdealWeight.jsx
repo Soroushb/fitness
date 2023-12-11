@@ -28,13 +28,23 @@ const styles = {
   },
 };
 
+const scrollToContent = () => {
+
+  setTimeout(() => {
+    const element = document.getElementById('result');
+    if(element){
+      element.scrollIntoView({behavior: "smooth"})
+    }
+  }, 500);
+}
+
 
 const IdealWeight = () => {
 
     const {Title} = Typography;
     const [gender, setGender] = useState("male");
     const [height, setHeight] = useState("");
-    const [showResult, setShowResult] = useState("false")
+    const [showResult, setShowResult] = useState(false)
     const {data} = useGetIdealWeightQuery({gender: gender, height: height});
     console.log(data)
 
@@ -45,7 +55,7 @@ const IdealWeight = () => {
 
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-        <Title level={2} style={{color: '#FF4136', marginTop: "30px"}}>Ideal Weight</Title>
+        <Title level={2} style={{color: '#FF4136', marginTop: "30px"}}>Ideal Weight:</Title>
         <div className='input-group'>
           <div className='input'>
           <Title level={3} style={{color: 'white'}}>Gender: </Title>
@@ -59,13 +69,13 @@ const IdealWeight = () => {
           <InputNumber onChange={onChange} /> 
           </div>
         </div>
-        <Button style={{marginTop: "20px"}} onClick={() => setShowResult(true)} type="primary">Calculate</Button>
+        <Button style={{marginTop: "20px"}} onClick={() => {setShowResult(true); scrollToContent()}} type="primary">Calculate</Button>
         {!data && showResult && (
           <Title level={3} style={styles.title}>No Results! Please check your inputs.</Title>
         )}
         {showResult && data && (
-        <motion.div variants={fadeIn}>
-        <Title level={3} style={styles.title}>{data?.data?.Devine}</Title>
+        <motion.div id='result' variants={fadeIn}>
+        <Title level={3} style={styles.title}>Result: {data?.data?.Devine}</Title>
         </motion.div>
         )}
     </div>

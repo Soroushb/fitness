@@ -9,6 +9,15 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeInOut' } },
 };
 
+const scrollToContent = (id) => {
+  setTimeout(() => {
+      const contentElement = document.getElementById(id); // replace with the actual ID of your content section
+      if (contentElement) {
+          contentElement.scrollIntoView({ behavior: "smooth" });
+      }
+  }, 100); // 500 milliseconds (half a second) delay
+};
+
 const styles = {
   container: {
     perspective: '800px',
@@ -40,7 +49,7 @@ const BodyFat = () => {
     const [neck, setNeck] = useState("");
     const [waist, setWaist] = useState("");
     const [hip, setHip] = useState("");
-    const [showResult, setShowResult] = useState("false")
+    const [showResult, setShowResult] = useState(false)
     const {data} = useGetBodyFatQuery({age: age, gender: gender, height: height, weight: weight, neck: neck, waist: waist, hip: hip});
     console.log(data)
 
@@ -87,11 +96,8 @@ const BodyFat = () => {
           Title level={3} style={{color: 'white'}}>Hip: </Title>
         <InputNumber onChange={(value) => {setHip(value); setShowResult(false)}} />   </div>
           <div className='input'>
-          <Button style={{marginTop: "45px"}} onClick={() => setShowResult(true)} type="primary">Calculate</Button>
+          <Button style={{marginTop: "45px"}} onClick={() => {setShowResult(true); scrollToContent("result")}} type="primary">Calculate</Button>
           </div>
-        </div><div className='input-group'>
-          <div className='input'></div>
-          <div className='input'></div>
         </div>
         
   
@@ -99,7 +105,7 @@ const BodyFat = () => {
           <Title level={3} style={styles.title}>No Results! Please check your inputs.</Title>
         )}
         {showResult && data && (
-          <motion.div className='body-fat-results' style={styles.container}>
+          <motion.div className='body-fat-results' id="result" style={styles.container}>
           <motion.div className='card' style={styles.card} initial="hidden" animate="visible" variants={fadeIn}>
             <motion.div variants={fadeIn}>
               <Title level={3} style={styles.title}>Body Fat (BMI Method): {data?.data?.["Body Fat (BMI method)"]}</Title>
