@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
+import { Modal } from 'antd';
 import {Typography} from 'antd'
 
 
@@ -14,7 +14,8 @@ const Food = () => {
 
   const {Title} = Typography
   const [subTable, setSubTable] = useState('');
-  const [food, setFood] = useState('')
+  const [food, setFood] = useState('');
+  const [activeTable, setActiveTable] = useState(false)
   const { data } = useGetFoodTablesQuery();
   const { data: subtables } = useGetFoodSubTablesQuery(subTable);
   const { data: foodId } = useGetFoodIdsQuery(subtables?.data[0]?.id);
@@ -95,9 +96,11 @@ const Food = () => {
             <li
               onClick={() => {
                 setSubTable(item);
-                scrollToContent("food")
+                scrollToContent("food");
+                setActiveTable(item)
               }}
               key={index}
+              className={`${activeTable === item ? "active-table" : ""}`}
             >
               {item}
             </li>
@@ -108,9 +111,13 @@ const Food = () => {
             <li
               onClick={() => {
                 setSubTable(item);
-                scrollToContent("food")
+                scrollToContent("food");
+                setActiveTable(item)
+
               }}
               key={index}
+              className={`${activeTable === item ? "active-table" : ""}`}
+
             >
               {item}
             </li>
@@ -133,7 +140,7 @@ const Food = () => {
     <div className="food-names-container">
         <div className="food-names-column">
           {currentFoodIdItems.map((food, index) => (
-            <div className='food' onClick={() => {setFood(food?.id); showModal()}} key={index}>{food?.foodType}</div>
+            <div className='food' style={{padding: "12px", color: "wheat"}} onClick={() => {setFood(food?.id); showModal()}} key={index}>{food?.foodType}</div>
           ))}
         </div>
         <div className="pagination">

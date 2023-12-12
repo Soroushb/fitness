@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className='nav-container'>
         <div className='logo-container'>
             <motion.div  animate="visible" variants={rotate3D}>
-                <Avatar src={"https://t4.ftcdn.net/jpg/04/22/12/95/360_F_422129557_tBylYldzJ5KjVTEdRLMkQIaYizThV1PE.jpg"} style={{marginRight: "10px"}} size={76}/>
+                <Avatar className='avatar'  src={"https://t4.ftcdn.net/jpg/04/22/12/95/360_F_422129557_tBylYldzJ5KjVTEdRLMkQIaYizThV1PE.jpg"}  size={76}/>
             </motion.div>
             <Typography.Title level={2} className="logo">
             <Link to="/">FitFusion</Link>

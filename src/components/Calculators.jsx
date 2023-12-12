@@ -11,7 +11,7 @@ const Calculators = () => {
 
 
     const {Title} = Typography
-    const [active, setActive] = useState("BMI");
+    const [active, setActive] = useState("Body Fat");
     const options = ["Body Fat", "BMI", "Ideal Weight", "Daily Calorie"];
     const { data } = useGetExerciseByNameQuery('chest')
     console.log(data)
@@ -19,7 +19,7 @@ const Calculators = () => {
 
   return (
     <div className='calculators'>
-    <Title level={2} style={{color: "white"}}>Fitness Calculators</Title>
+    <Title level={1} style={{color: "white"}}>Fitness Calculators</Title>
     <div className='calculator-options'>
       {options.map((option) => (
               <div className={`calculator-option ${active === option ? "active-calc" : ""}`} onClick={() => setActive(option)}>{option}</div>

@@ -29,7 +29,7 @@ const Diet = (props) => {
       <>
         <div className='page-title-container'>
           <div className='page-title'>
-          <Title style={{color: "white"}} level={2}>Activity Calorie Calculator</Title>
+          <Title style={{color: "white", textAlign: "center"}} level={2}>Activity Calorie Calculator</Title>
           </div>
           <div className='page-desc' id="result">
           <Title style={{color: "#A9A9A9", textAlign: "center"}} level={4}>Find out the calorie burn for different activities. Click on an activity to see how many calories you can lose. Simple, informative, and tailored to your fitness journey.</Title>
@@ -37,7 +37,7 @@ const Diet = (props) => {
 
         </div>
         <div className='result-container' >
-        {calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Calories Burned (After 30 Minutes): <Title level={2} style={{fontWeight: "500", color: "white", backgroundColor: "#FF4136", padding: "10px", borderRadius: "25px", marginTop: "20px"}}>{calorie?.data?.burnedCalorie}</Title></Title>)}
+        {calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center", textAlign: "center"}}>Calories Burned (After 30 Minutes): <Title level={2} style={{fontWeight: "500", color: "white", backgroundColor: "#FF4136", padding: "10px", borderRadius: "25px", marginTop: "20px"}}>{calorie?.data?.burnedCalorie} cal</Title></Title>)}
         {!calorie && (<Title level={3} style={{color: 'white', display: 'flex', justifyContent: 'center', flexDirection: "column", alignItems: "center"}}>Click on an activity.</Title>)}
         </div>
         <div className='control-container'>

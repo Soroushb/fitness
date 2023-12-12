@@ -19,7 +19,7 @@ const SearchExercise = () => {
     <>
     <div className='search-exercises' style={{marginTop: "60px"}}>
     <div className='title-search'>
-    <Title level={2} className="heading" style={{color: 'white', textAlign: "center"}}>
+    <Title level={1} className="heading" style={{color: 'white', textAlign: "center"}}>
       Search for an Exercise:
     </Title>
     <Col span={8} style={{marginBottom: "45px", marginRight: "40px"}}>

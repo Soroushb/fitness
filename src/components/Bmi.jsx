@@ -26,6 +26,15 @@ const styles = {
     margin: '16px 0',
     borderRadius: '8px',
   },
+  title2: {
+    color: '#FF4136',
+    borderStyle: "solid",
+    borderColor: '#FF4136',
+    padding: '16px',
+    margin: '16px 0',
+    borderRadius: '8px',
+    textAlign: 'center'
+  }
 };
 
 
@@ -44,7 +53,7 @@ const Bmi = () => {
   return (
     <div className='bmi-container'>
         <div style={{display: "flex", justifyContent: "center", marginTop: "30px"}}>
-        <Title level={2} style={{color: '#FF4136'}}>BMI:</Title>
+        <Title level={2} style={{color: '#FF4136'}}>Calculate BMI:</Title>
         </div>
         <div className="input-group">
         <div className='input'>
@@ -67,7 +76,7 @@ const Bmi = () => {
         </div>
           
         {!data && showResult && (
-          <Title level={3} style={styles.title}>No Results! Please check your inputs.</Title>
+          <Title level={3} style={styles.title2}>No Results! Please check your inputs.</Title>
         )}
         {showResult && data && (
         <div className='bmi-result-container'>

@@ -26,6 +26,15 @@ const styles = {
     margin: '16px 0',
     borderRadius: '8px',
   },
+  title2 : {
+    color: '#FF4136',
+    borderStyle: "solid",
+    borderColor: '#FF4136',
+    padding: '16px',
+    margin: '16px 0',
+    borderRadius: '8px',
+    textAlign: 'center'
+  }
 };
 
 const scrollToContent = () => {
@@ -55,7 +64,7 @@ const IdealWeight = () => {
 
   return (
     <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-        <Title level={2} style={{color: '#FF4136', marginTop: "30px"}}>Ideal Weight:</Title>
+        <Title level={2} style={{color: '#FF4136', marginTop: "30px"}}>Calculate Ideal Weight:</Title>
         <div className='input-group'>
           <div className='input'>
           <Title level={3} style={{color: 'white'}}>Gender: </Title>
@@ -71,11 +80,11 @@ const IdealWeight = () => {
         </div>
         <Button style={{marginTop: "20px"}} onClick={() => {setShowResult(true); scrollToContent()}} type="primary">Calculate</Button>
         {!data && showResult && (
-          <Title level={3} style={styles.title}>No Results! Please check your inputs.</Title>
+          <Title level={3} style={styles.title2}>No Results! Please check your inputs.</Title>
         )}
         {showResult && data && (
         <motion.div id='result' variants={fadeIn}>
-        <Title level={3} style={styles.title}>Result: {data?.data?.Devine}</Title>
+        <Title level={3} style={{color: "white"}} className='bmi-result-container'>Result: {data?.data?.Devine}</Title>
         </motion.div>
         )}
     </div>

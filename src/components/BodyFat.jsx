@@ -35,6 +35,15 @@ const styles = {
     margin: '16px 0',
     borderRadius: '8px',
   },
+  title2: {
+    color: '#FF4136',
+    borderStyle: "solid",
+    borderColor: '#FF4136',
+    padding: '16px',
+    margin: '16px 0',
+    borderRadius: '8px',
+    textAlign: 'center'
+  }
 };
 
 
@@ -102,7 +111,7 @@ const BodyFat = () => {
         
   
         {!data && showResult && (
-          <Title level={3} style={styles.title}>No Results! Please check your inputs.</Title>
+          <Title level={3} style={styles.title2}>No Results! Please check your inputs.</Title>
         )}
         {showResult && data && (
           <motion.div className='body-fat-results' id="result" style={styles.container}>

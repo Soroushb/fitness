@@ -92,6 +92,8 @@
         align-items: center;
     }
 
+
+    .avatar{margin-right: 25px}
     
 
     @media screen and (max-width:800px){
@@ -100,7 +102,9 @@
             overflow: hidden;
         }
 
-        
+        .avatar{
+            scale: 85%;
+        }
 
         .search-exercises{ 
             display: flex;
@@ -862,7 +866,8 @@
 
 
     .food{
-        background-color: #c0392b;
+        border-color: #c0392b;
+        border-style: solid;
         margin: 3px;
         padding: 5px;
         border-radius: 10px;
@@ -1011,4 +1016,58 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .mac{
+        color: white;
+        background-color: #005194;
+        padding: 16px;
+        margin: 16px 0;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .active-mac{
+        background-color: white;
+    }
+
+    .goals {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    }
+
+    .active-table{
+        background-color: #0A2472;
+    }
+
+    .bmi-result-container{
+        text-align: center;
+        margin-top: 20px;
+        padding: 25px;
+        border: #FF4136;
+        border-style: solid;
+    }
+    
+    .activity-help{
+        display: flex;
+    }
+
+    .question-mark{
+        background-color: #005194;
+        position: relative;
+        border-radius: 50%;
+        padding: 10px;
+        scale: 95%;
+        
+    }
+
+    .question-mark:hover{
+       cursor: pointer;
+       scale: 110%;
     }
